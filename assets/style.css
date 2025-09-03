@@ -1,0 +1,193 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Body */
+body {
+    background-color: #f9f9f9; /* Light background */
+    color: #333; /* Dark text for readability */
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 20px;
+}
+
+/* Left Pane (Fixed on the left side) */
+.left-pane {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 250px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    border-radius: 8px;
+    height: 100%;
+}
+
+/* Profile Image */
+.profilepic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Circular image */
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* Profile Name */
+.profile-name {
+    font-size: 18px;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Profile Bio */
+.profile-bio {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+/* Menu Links (Text beside the profile) */
+.menu-link {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    padding: 8px 0;
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.2s ease;
+}
+
+.menu-link:hover {
+    color: #0077cc; /* Blue on hover */
+    padding-left: 8px; /* Slight padding for hover effect */
+}
+
+/* Right Content Area */
+.content-area {
+    margin-left: 280px; /* Leave space for the left pane */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+button, .btn {
+    font-size: 14px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #0077cc; /* Blue background */
+    color: #fff; /* White text */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition for background and hover */
+    display: inline-block;
+    text-align: center;
+}
+
+/* Button Hover Effects */
+button:hover, .btn:hover {
+    background-color: #005fa3; /* Darker shade on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* Focus Effect */
+button:focus, .btn:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.6); /* Custom focus outline */
+}
+
+/* Disabled Buttons */
+button:disabled, .btn:disabled {
+    background-color: #ccc; /* Grey background for disabled state */
+    color: #777; /* Grey text */
+    cursor: not-allowed;
+    transform: none; /* No hover effect on disabled buttons */
+}
+
+/* Specific Button Styles for PDF, etc. */
+.pdf-btn, .etc-btn {
+    background-color: #4CAF50; /* Green background */
+    color: #fff; /* White text */
+    border-radius: 4px;
+}
+
+.pdf-btn:hover, .etc-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Button Icons (for PDF, etc.) */
+.pdf-btn i, .etc-btn i {
+    margin-right: 8px; /* Space between icon and text */
+}
+
+/* Link Hover Effects (for links like "noter", etc.) */
+a:hover {
+    text-decoration: none;
+    color: #0077cc;
+    transition: color 0.3s ease;
+}
+
+/* Noter text */
+.noter {
+    font-size: 9pt;
+    color: #777;
+}
+
+/* Tag and Separator */
+.tagsep {
+    padding: 4px;
+}
+
+.tag {
+    padding-right: 2px;
+}
+
+/* Shortened Conference */
+.confshort {
+    font-weight: 300;
+}
+
+/* Inline Conference Block */
+.conf {
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+/* Paper Styling */
+.paper {
+    border-left: 1px solid #ddd;
+}
+
+/* Responsive Layout (For screens larger than 768px) */
+@media (min-width: 768px) {
+    .fixed-posi {
+        position: fixed;
+    }
+}
+
+/* Responsive Layout (For smaller screens below 900px) */
+@media only screen and (max-width: 900px) {
+    .left-pane {
+        width: 200px; /* Smaller left pane on smaller screens */
+        top: 10px;
+    }
+
+    .profilepic {
+        width: 90px; /* Smaller profile image */
+        height: 90px;
+    }
+
+    .profile-name {
+        font-size: 16px;
+    }
+
+    .content-area {
+        margin-left: 220px; /* Adjust space for smaller left pane */
+    }
+}
