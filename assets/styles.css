@@ -1,16 +1,16 @@
-/* styles.css - modern academic UI for Abhinav Java's site */
+/* Updated styles.css with explicit .dark theme support */
 :root{
-  --bg:#ffffff; --card:#ffffff; --muted:#6b7280; --accent:#0b66c2; --text:#0f1720;
-  --glass: rgba(15,23,42,0.03);
+  --bg:#ffffff; --card:#ffffff; --muted:#6b7280; --accent:#0b66c2; --text:#0f1720; --glass: rgba(15,23,42,0.03);
   --max-width:1100px;
 }
+.dark{ --bg:#07101a; --card:#07161d; --muted:#9aa6b2; --accent:#7fb0ff; --text:#e6eef9; --glass: rgba(255,255,255,0.02); }
 *{box-sizing:border-box}
 html,body{height:100%;}
 body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color:var(--text); background:var(--bg); margin:0; font-size:16px; line-height:1.6;-webkit-font-smoothing:antialiased}
 .container{max-width:var(--max-width); margin:0 auto; padding:1rem}
 
 /* Navbar */
-.navbar{background:var(--card); border-bottom:1px solid #eef2f7}
+.navbar{background:var(--card); border-bottom:1px solid rgba(0,0,0,0.06)}
 .nav-inner{display:flex; align-items:center; gap:1rem; justify-content:space-between}
 .brand{font-weight:800; font-size:1.125rem; color:var(--text); text-decoration:none}
 .nav-toggle{display:none; background:none; border:none; font-size:1.25rem}
@@ -33,29 +33,15 @@ body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica
 .muted{color:var(--muted)}
 .profile-links a{display:block; color:var(--accent); text-decoration:none; margin:.3rem 0}
 
-.intro-card{background:linear-gradient(180deg,#ffffff,#fbfdff); border-radius:12px; padding:1rem; box-shadow:0 8px 20px rgba(18,24,40,0.04)}
+.intro-card{background:linear-gradient(180deg, var(--card), #fbfdff); border-radius:12px; padding:1rem; box-shadow:0 8px 20px rgba(18,24,40,0.04)}
 .lead{font-size:1.02rem}
 .research-list{padding-left:1.15rem}
 .research-list li{margin-bottom:.6rem}
 
 /* Cards */
 .card{background:var(--card); border-radius:12px; padding:0; margin-top:1rem; box-shadow:0 8px 18px rgba(16,24,40,0.035)}
-.card-head{display:flex; justify-content:space-between; align-items:center; padding:1rem; border-bottom:1px solid #f1f5f9}
+.card-head{display:flex; justify-content:space-between; align-items:center; padding:1rem; border-bottom:1px solid rgba(0,0,0,0.04)}
 .card-body{padding:1rem}
-.pub-actions{display:flex; gap:.5rem; align-items:center}
-.select-sm{padding:.35rem .5rem; border-radius:8px}
-.file-upload{background:#f8fafc; border:1px dashed #e6eef9; padding:.35rem .6rem; border-radius:8px; cursor:pointer}
-.sr-only{position:absolute; left:-9999px}
-
-/* Publications */
-.pub-list{display:grid; gap:.8rem}
-.pub-item{padding:.8rem; border-radius:8px; background:var(--glass)}
-.pub-title{margin:0 0 .2rem 0}
-.pub-meta{margin:0; font-weight:600}
-.pub-abs{margin:.35rem 0 0 0}
-.tag-cloud{display:flex; gap:.5rem; flex-wrap:wrap}
-.tag-chip{padding:.25rem .5rem; border-radius:999px; background:#f1f9ff; color:var(--accent); cursor:pointer; border:1px solid rgba(11,102,194,0.08)}
-.tag-chip.active{background:var(--accent); color:white}
 
 /* Timeline */
 .timeline{display:flex; flex-direction:column; gap:.6rem}
@@ -68,9 +54,8 @@ body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica
 .links-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:.5rem}
 .link-btn{display:block; padding:.5rem; border-radius:8px; background:#f8fafc; text-decoration:none; color:var(--accent); text-align:center}
 
-/* Footer */
-.site-footer{padding:1rem 0; margin-top:1rem}
-.foot-inner{display:flex; justify-content:space-between; align-items:center}
+/* Accessibility focus */
+a:focus, button:focus{outline:3px solid rgba(11,102,194,0.15); outline-offset:2px}
 
 /* Responsive nav */
 @media(max-width:991.98px){
@@ -79,11 +64,5 @@ body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica
   #primaryNav[hidden]{display:none}
 }
 
-/* Dark mode (prefers) */
-@media (prefers-color-scheme: dark){
-  :root{--bg:#07101a; --card:#07161d; --muted:#9aa6b2; --accent:#7fb0ff; --text:#e6eef9; --glass: rgba(255,255,255,0.02)}
-  body{background:var(--bg)}
-}
-
-/* Accessibility focus */
-a:focus, button:focus{outline:3px solid rgba(11,102,194,0.15); outline-offset:2px}
+/* Small visual polish when in dark mode: adjust intro gradient */
+.dark .intro-card{background:linear-gradient(180deg, var(--card), #071a26)}

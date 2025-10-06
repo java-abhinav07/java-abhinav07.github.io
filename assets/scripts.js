@@ -1,6 +1,4 @@
-// scripts.js - interactivity for Abhinav Java's site
 (function(){
-  // Utilities
   const qs = s => document.querySelector(s);
   const qsa = s => Array.from(document.querySelectorAll(s));
 
@@ -25,7 +23,7 @@
         if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
         qsa('.nav-link').forEach(n=>n.classList.remove('active'));
         a.classList.add('active');
-        if(window.innerWidth < 992 && !primaryNav.hasAttribute('hidden')){
+        if(window.innerWidth < 992 && primaryNav && !primaryNav.hasAttribute('hidden')){
           primaryNav.setAttribute('hidden','');
           navToggle.setAttribute('aria-expanded','false');
         }
@@ -33,16 +31,24 @@
     })
   });
 
-  // Theme toggle (persist in localStorage)
+  // Theme toggle (persist in localStorage) with explicit .dark class support
   const themeToggle = qs('#themeToggle');
   const root = document.documentElement;
   const saved = localStorage.getItem('site:theme');
-  if(saved === 'dark') root.classList.add('dark');
+  function applyTheme(name){
+    if(name === 'dark'){
+      root.classList.add('dark');
+      if(themeToggle) { themeToggle.textContent = '☀️'; themeToggle.setAttribute('aria-pressed','true'); }
+    } else {
+      root.classList.remove('dark');
+      if(themeToggle) { themeToggle.textContent = '🌙'; themeToggle.setAttribute('aria-pressed','false'); }
+    }
+  }
+  if(saved === 'dark') applyTheme('dark'); else applyTheme('light');
   themeToggle && themeToggle.addEventListener('click', ()=>{
     const isDark = root.classList.toggle('dark');
-    themeToggle.setAttribute('aria-pressed', String(isDark));
+    applyTheme(isDark ? 'dark' : 'light');
     localStorage.setItem('site:theme', isDark ? 'dark' : 'light');
-    themeToggle.textContent = isDark ? '☀️' : '🌙';
   });
 
   // Ensure profile image isn't squished
@@ -53,58 +59,15 @@
     });
   }
 
-  /******* Publications: simple BibTeX import + tag filtering + sorting ********/
+  // Publications-related elements guard (we removed the publications section)
   const bibInput = qs('#bibUpload');
   const pasteBtn = qs('#pasteBibBtn');
   const pubList = qs('#pubList');
   const tagCloud = qs('#tagCloud');
   const sortSelect = qs('#sortSelect');
 
-  // Simple BibTeX parser for common fields (title, author, year, journal/booktitle, keywords)
-  function parseBibtex(text){
-    const entries = [];
-    // naive split by @type{
-    const parts = text.split(/@(?=\w+)/).map(s=>s.trim()).filter(Boolean);
-    for(const p of parts){
-      const m = p.match(/^(\w+)\s*\{\s*([^,]+),([\s\S]*)\}$/m);
-      if(!m) continue;
-      const type = m[1];
-      const citekey = m[2].trim();
-      const fieldsRaw = m[3];
-      const fields = {};
-      const fieldRegex = /([a-zA-Z0-9_\-]+)\s*=\s*\{([\s\S]*?)\}\s*,?/g;
-      let fm;
-      while((fm = fieldRegex.exec(fieldsRaw)) !== null){
-        fields[fm[1].toLowerCase()] = fm[2].trim();
-      }
-      const title = fields.title || '';
-      const author = fields.author || '';
-      const year = fields.year || '';
-      const venue = fields.journal || fields.booktitle || '';
-      const keywords = fields.keywords ? fields.keywords.split(/[,;]+/).map(s=>s.trim().toLowerCase()).filter(Boolean) : [];
-      entries.push({type,citekey,title,author,year:year || '0',venue,keywords});
-    }
-    return entries;
-  }
-
-  function renderPubs(list){
-    pubList.innerHTML = '';
-    list.forEach(pub=>{
-      const art = document.createElement('article');
-      art.className = 'pub-item';
-      art.dataset.tags = (pub.keywords || []).join(',');
-      art.dataset.year = pub.year || '0';
-      art.innerHTML = `
-        <h4 class="pub-title">${pub.title || pub.citekey}</h4>
-        <p class="pub-meta">${pub.venue || ''} ${pub.year ? '— '+pub.year : ''}</p>
-        <p class="pub-abs muted">${pub.author || ''}</p>
-      `;
-      pubList.appendChild(art);
-    });
-    refreshTagCloud();
-  }
-
   function refreshTagCloud(){
+    if(!tagCloud) return;
     const items = qsa('.pub-item');
     const tagCounts = {};
     items.forEach(it=>{
@@ -125,57 +88,14 @@
       tagCloud.appendChild(btn);
     });
   }
+  function applyTagFilter(){ if(!tagCloud) return; const active = qsa('.tag-chip.active').map(b=>b.dataset.tag); qsa('.pub-item').forEach(it=>{ const tags = (it.dataset.tags||'').split(',').map(s=>s.trim()).filter(Boolean); if(active.length===0) { it.style.display=''; return; } const ok = active.every(a=> tags.includes(a)); it.style.display = ok ? '' : 'none'; }); }
+  function sortPubs(mode){ if(!pubList) return; const items = Array.from(qsa('.pub-item')); const container = pubList; const cmp = { 'year_desc': (a,b)=> parseInt(b.dataset.year||0) - parseInt(a.dataset.year||0), 'year_asc': (a,b)=> parseInt(a.dataset.year||0) - parseInt(b.dataset.year||0), 'title_asc': (a,b)=> a.querySelector('.pub-title').textContent.localeCompare(b.querySelector('.pub-title').textContent) }[mode] || (()=>0); items.sort(cmp).forEach(i=>container.appendChild(i)); }
 
-  function applyTagFilter(){
-    const active = qsa('.tag-chip.active').map(b=>b.dataset.tag);
-    qsa('.pub-item').forEach(it=>{
-      const tags = (it.dataset.tags||'').split(',').map(s=>s.trim()).filter(Boolean);
-      if(active.length===0) { it.style.display=''; return; }
-      // visible if pub contains all active tags
-      const ok = active.every(a=> tags.includes(a));
-      it.style.display = ok ? '' : 'none';
-    });
-  }
+  if(bibInput){ bibInput.addEventListener('change', async (e)=>{ const file = e.target.files[0]; if(!file) return; const text = await file.text(); console.log('Imported bibtex, but publications section is currently removed.'); }); }
+  if(pasteBtn){ pasteBtn.addEventListener('click', ()=>{ alert('Publications section is currently removed. Paste feature disabled.'); }); }
+  if(sortSelect){ sortSelect.addEventListener('change', ()=> sortPubs(sortSelect.value)); }
 
-  function sortPubs(mode){
-    const items = Array.from(qsa('.pub-item'));
-    const container = pubList;
-    const cmp = {
-      'year_desc': (a,b)=> parseInt(b.dataset.year||0) - parseInt(a.dataset.year||0),
-      'year_asc': (a,b)=> parseInt(a.dataset.year||0) - parseInt(b.dataset.year||0),
-      'title_asc': (a,b)=> a.querySelector('.pub-title').textContent.localeCompare(b.querySelector('.pub-title').textContent)
-    }[mode] || (()=>0);
-    items.sort(cmp).forEach(i=>container.appendChild(i));
-  }
-
-  // File import
-  if(bibInput){
-    bibInput.addEventListener('change', async (e)=>{
-      const file = e.target.files[0];
-      if(!file) return;
-      const text = await file.text();
-      const entries = parseBibtex(text);
-      // convert entries to internal format
-      const pubs = entries.map(en=>({citekey:en.citekey, title:en.title, author:en.author, year:en.year, venue:en.venue, keywords:en.keywords}));
-      renderPubs(pubs);
-    });
-  }
-
-  // Paste bib
-  if(pasteBtn){
-    pasteBtn.addEventListener('click', ()=>{
-      const t = prompt('Paste BibTeX entries here (or Cancel)');
-      if(!t) return;
-      const entries = parseBibtex(t);
-      const pubs = entries.map(en=>({citekey:en.citekey, title:en.title, author:en.author, year:en.year, venue:en.venue, keywords:en.keywords}));
-      renderPubs(pubs);
-    });
-  }
-
-  // Sorting
-  sortSelect && sortSelect.addEventListener('change', ()=> sortPubs(sortSelect.value));
-
-  // Initialize tag cloud for placeholder pubs
+  // no-op if pub elements absent
   refreshTagCloud();
 
 })();

@@ -29,7 +29,7 @@
         <div id="primaryNav" class="nav-links" hidden>
           <a class="nav-link" href="#about">About</a>
           <a class="nav-link" href="#research">Research</a>
-          <a class="nav-link" href="#publications">Publications</a>
+          <a class="nav-link" href="https://scholar.google.com/citations?user=g--_R9wAAAAJ&sortby=pubdate" target="_blank">Google Scholar</a>
           <a class="nav-link" href="#updates">Updates</a>
           <a class="nav-link" href="#contact">Contact</a>
           <a class="btn btn-ghost" href="assets/AbhinavCV_2025.pdf" target="_blank">Download CV</a>
@@ -63,8 +63,7 @@
 
           <!-- Intro -->
           <section class="intro-card">
-            <h2>Making ML systems efficient, reliable, and deployable</h2>
-            <p class="lead">I build methods so machine learning models can interact with data more effectively — conserving compute, preserving privacy, and operating robustly when data is scarce.</p>
+            <p class="lead">My research focuses on the efficiency and reliability of machine learning. Data plays a pivotal role in shaping today's models. I develop methods that help models interact with data so they perform well in real-world settings.</p>
 
             <h3 id="research">Research directions</h3>
             <ul class="research-list">
@@ -72,54 +71,22 @@
               <li><strong>Test-time interaction.</strong> Non-monolithic models that consult external sources (databases, retrieval, the web) without prohibitive costs.</li>
               <li><strong>Responsible data use.</strong> Efficient auditing and control mechanisms for privacy, fairness and safety with practical accuracy trade-offs.</li>
             </ul>
-
-            <p class="muted">At <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-india/" target="_blank">Microsoft Research India</a>, I work on efficient grounding for retrieval-augmented models (e.g., <em>FrugalRAG</em>) and evaluation benchmarks like <em>LiveDRBench</em>.</p>
+            <p class="muted">
+              At 
+              <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-india/" target="_blank">
+                Microsoft Research India
+              </a>, 
+              I work on efficient grounding for retrieval-augmented models 
+              (e.g., <a href="https://github.com/microsoft/FrugalRAG" target="_blank"><em>FrugalRAG</em></a>) 
+              and evaluation benchmarks like 
+              <a href="https://huggingface.co/datasets/microsoft/LiveDRBench" target="_blank"><em>LiveDRBench</em></a>.
+            </p>
           </section>
 
         </div>
       </header>
 
-      <!-- Publications -->
-      <section class="card" id="publications" aria-labelledby="pubsHeading">
-        <div class="card-head">
-          <h3 id="pubsHeading">Publications</h3>
-          <div class="pub-actions">
-            <label class="file-upload" for="bibUpload">Import BibTeX</label>
-            <input id="bibUpload" type="file" accept=".bib" class="sr-only">
-            <button id="pasteBibBtn" class="btn btn-sm">Paste BibTeX</button>
-            <select id="sortSelect" class="select-sm">
-              <option value="year_desc">Sort: Year (new → old)</option>
-              <option value="year_asc">Sort: Year (old → new)</option>
-              <option value="title_asc">Sort: Title (A→Z)</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="card-body pub-body">
-          <div class="pub-filters">
-            <label>Filter tags:</label>
-            <div id="tagCloud" class="tag-cloud" aria-hidden="false"></div>
-          </div>
-
-          <div id="pubList" class="pub-list" aria-live="polite">
-            <!-- Placeholder example publications (replace or import BibTeX) -->
-            <article class="pub-item" data-tags="privacy,vision" data-year="2022">
-              <h4 class="pub-title">Preventing Sensitive Attribute Leakage from Point Clouds</h4>
-              <p class="pub-meta">ECCV 2022 — with MIT Media Lab</p>
-              <p class="pub-abs muted">Privacy-preserving vision systems that reduce attribute leakage in 3D data.</p>
-            </article>
-
-            <article class="pub-item" data-tags="nlp,privacy" data-year="2025">
-              <h4 class="pub-title">Unlearnable Text Datasets</h4>
-              <p class="pub-meta">NAACL 2025</p>
-              <p class="pub-abs muted">Framework for making textual data difficult to learn by models while remaining useful for humans.</p>
-            </article>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- Updates (timeline with icons) -->
+      <!-- Updates -->
       <section class="card" id="updates">
         <div class="card-head"><h3>Recent updates</h3></div>
         <div class="card-body timeline" aria-live="polite">
@@ -128,7 +95,7 @@
             <div class="timeline-marker">🔬</div>
             <div class="timeline-body">
               <time datetime="2025-10">Oct 2025</time>
-              <p><strong>FrugalRAG</strong> — accepted to the NeurIPS Workshop on <em>Efficient Reasoning 2025</em>. Code: <a href="https://github.com/microsoft/FrugalRAG" target="_blank">github.com/microsoft/FrugalRAG</a>.</p>
+              <p><strong>FrugalRAG</strong> is accepted to the NeurIPS Workshop on <em>Efficient Reasoning 2025</em>. Official code: <a href="https://github.com/microsoft/FrugalRAG" target="_blank">github.com/microsoft/FrugalRAG</a>.</p>
             </div>
           </div>
 
@@ -148,12 +115,11 @@
             </div>
           </div>
 
-          <!-- earlier items compact -->
           <div class="timeline-item">
             <div class="timeline-marker">📢</div>
             <div class="timeline-body">
               <time datetime="2025-07">Jul 2025</time>
-              <p>Attended <strong>ICML 2025</strong> in Vancouver (July 13–19).</p>
+              <p>Attended <strong>ICML 2025</strong> in Vancouver (July 13–19) to present FrugalRAG (<a href="https://x.com/abhinav_java/status/1946125121879785900" target="_blank">Tweet</a>).</p>
             </div>
           </div>
 
@@ -161,37 +127,62 @@
             <div class="timeline-marker">📄</div>
             <div class="timeline-body">
               <time datetime="2025-06">Jun 2025</time>
-              <p><strong>FrugalRAG</strong> — accepted to ICML EsFoMo workshop; preprint: <a href="https://arxiv.org/pdf/2507.07634" target="_blank">arXiv:2507.07634</a>.</p>
+              <p>Faster and flexible SLMs for retrieval intensive reasoning! <strong>FrugalRAG</strong> is accepted at ICML EsFoMo workshop. Preprint: <a href="https://arxiv.org/pdf/2507.07634" target="_blank">arXiv:2507.07634</a>.</p>
+            </div>
+          </div>
+
+          <!-- Older updates -->
+          <div class="timeline-item">
+            <div class="timeline-marker">🧠</div>
+            <div class="timeline-body">
+              <time datetime="2025-02">Feb 2025</time>
+              <p><strong>Unlearnable Text Datasets</strong> accepted at NAACL 2025 (Main). Code released: <a href="https://github.com/AikyamLab/regtext" target="_blank">GitHub</a>.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker">📘</div>
+            <div class="timeline-body">
+              <time datetime="2024-11">Nov 2024</time>
+              <p><strong>Want to edit images without long, descriptive prompts? Use ReEdit! Our latest work on Exemplar-Based Image Editing accepted at WACV 2025 and ECCV-AI4VA 2024. Code and website available at <a href="https://github.com/reedit-diffusion/reedit-diffusion" target="_blank">GitHub</a> and <a href="https://reedit-diffusion.github.io/" target="_blank">Project page</a>.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker">🧮</div>
+            <div class="timeline-body">
+              <time datetime="2024-09">Sep 2024</time>
+              <p><strong>Thinking Fair and Slow</strong> is accepted at EMNLP 2024 (Main)! We show how effective structured prompting really is for debiasing LLMs.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker">🏁</div>
+            <div class="timeline-body">
+              <time datetime="2024-08">Aug 2024</time>
+              <p>Joined <strong>Microsoft Research India</strong> as a Pre-Doctoral Research Fellow.</p>
             </div>
           </div>
 
         </div>
       </section>
 
-      <!-- Contact / quick links -->
+      <!-- Contact -->
       <aside class="card" id="contact">
         <div class="card-head"><h3>Quick links & contact</h3></div>
         <div class="card-body">
           <div class="links-grid">
             <a class="link-btn" href="assets/AbhinavCV_2025.pdf" target="_blank">Curriculum Vitae</a>
-            <a class="link-btn" href="https://scholar.google.com/citations?user=g--_R9wAAAAJ" target="_blank">Google Scholar</a>
+            <a class="link-btn" href="https://scholar.google.com/citations?user=g--_R9wAAAAJ&sortby=pubdate" target="_blank">Google Scholar</a>
             <a class="link-btn" href="https://github.com/java-abhinav07" target="_blank">GitHub</a>
             <a class="link-btn" href="https://www.linkedin.com/in/abhinav-java-2b57a4187/" target="_blank">LinkedIn</a>
           </div>
 
           <div class="contact-block mt-3">
             <p class="mb-1">Email: <a href="mailto:java.abhinav99@gmail.com">java.abhinav99@gmail.com</a></p>
-            <p class="muted mb-0">Based at Microsoft Research India</p>
           </div>
         </div>
       </aside>
-
-      <footer class="site-footer">
-        <div class="foot-inner">
-          <div>&copy; <strong>Abhinav Java</strong> — 2025</div>
-          <div class="muted">Designed for clarity • Responsive • Accessible</div>
-        </div>
-      </footer>
 
     </main>
 
