@@ -1,193 +1,89 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+/* styles.css - modern academic UI for Abhinav Java's site */
+:root{
+  --bg:#ffffff; --card:#ffffff; --muted:#6b7280; --accent:#0b66c2; --text:#0f1720;
+  --glass: rgba(15,23,42,0.03);
+  --max-width:1100px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;}
+body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color:var(--text); background:var(--bg); margin:0; font-size:16px; line-height:1.6;-webkit-font-smoothing:antialiased}
+.container{max-width:var(--max-width); margin:0 auto; padding:1rem}
+
+/* Navbar */
+.navbar{background:var(--card); border-bottom:1px solid #eef2f7}
+.nav-inner{display:flex; align-items:center; gap:1rem; justify-content:space-between}
+.brand{font-weight:800; font-size:1.125rem; color:var(--text); text-decoration:none}
+.nav-toggle{display:none; background:none; border:none; font-size:1.25rem}
+.nav-links{display:flex; gap:0.75rem; align-items:center}
+.nav-link{color:var(--muted); text-decoration:none; font-weight:600}
+.nav-link:hover{color:var(--accent)}
+.btn{padding:.5rem .75rem; border-radius:8px; border:1px solid transparent; background:var(--accent); color:white; text-decoration:none}
+.btn-ghost{background:transparent; color:var(--accent); border:1px solid rgba(11,102,194,0.12); padding:.45rem .6rem}
+.btn-sm{padding:.35rem .5rem; font-size:.9rem}
+.btn-icon{background:transparent; border:none; cursor:pointer}
+
+/* Hero */
+.hero{padding:1.25rem 0}
+.hero-grid{display:grid; grid-template-columns:1fr; gap:1rem}
+@media(min-width:992px){.hero-grid{grid-template-columns:320px 1fr}}
+
+.profile-card{background:var(--card); border-radius:12px; padding:1rem; box-shadow:0 8px 24px rgba(16,24,40,0.04); text-align:center}
+.profile-img{width:220px; max-width:100%; height:auto; border-radius:12px; display:block; margin:0 auto 0.75rem}
+#profileName{font-size:1.25rem; margin:.15rem 0}
+.muted{color:var(--muted)}
+.profile-links a{display:block; color:var(--accent); text-decoration:none; margin:.3rem 0}
+
+.intro-card{background:linear-gradient(180deg,#ffffff,#fbfdff); border-radius:12px; padding:1rem; box-shadow:0 8px 20px rgba(18,24,40,0.04)}
+.lead{font-size:1.02rem}
+.research-list{padding-left:1.15rem}
+.research-list li{margin-bottom:.6rem}
+
+/* Cards */
+.card{background:var(--card); border-radius:12px; padding:0; margin-top:1rem; box-shadow:0 8px 18px rgba(16,24,40,0.035)}
+.card-head{display:flex; justify-content:space-between; align-items:center; padding:1rem; border-bottom:1px solid #f1f5f9}
+.card-body{padding:1rem}
+.pub-actions{display:flex; gap:.5rem; align-items:center}
+.select-sm{padding:.35rem .5rem; border-radius:8px}
+.file-upload{background:#f8fafc; border:1px dashed #e6eef9; padding:.35rem .6rem; border-radius:8px; cursor:pointer}
+.sr-only{position:absolute; left:-9999px}
+
+/* Publications */
+.pub-list{display:grid; gap:.8rem}
+.pub-item{padding:.8rem; border-radius:8px; background:var(--glass)}
+.pub-title{margin:0 0 .2rem 0}
+.pub-meta{margin:0; font-weight:600}
+.pub-abs{margin:.35rem 0 0 0}
+.tag-cloud{display:flex; gap:.5rem; flex-wrap:wrap}
+.tag-chip{padding:.25rem .5rem; border-radius:999px; background:#f1f9ff; color:var(--accent); cursor:pointer; border:1px solid rgba(11,102,194,0.08)}
+.tag-chip.active{background:var(--accent); color:white}
+
+/* Timeline */
+.timeline{display:flex; flex-direction:column; gap:.6rem}
+.timeline-item{display:flex; gap:.75rem; align-items:flex-start; padding:.6rem}
+.timeline-marker{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; background:var(--glass)}
+.timeline-body time{font-weight:700; color:var(--muted)}
+.timeline-body p{margin:.25rem 0 0 0}
+
+/* Quick links */
+.links-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:.5rem}
+.link-btn{display:block; padding:.5rem; border-radius:8px; background:#f8fafc; text-decoration:none; color:var(--accent); text-align:center}
+
+/* Footer */
+.site-footer{padding:1rem 0; margin-top:1rem}
+.foot-inner{display:flex; justify-content:space-between; align-items:center}
+
+/* Responsive nav */
+@media(max-width:991.98px){
+  .nav-toggle{display:block}
+  .nav-links{flex-direction:column; gap:.5rem}
+  #primaryNav[hidden]{display:none}
 }
 
-/* Body */
-body {
-    background-color: #f9f9f9; /* Light background */
-    color: #333; /* Dark text for readability */
-    font-size: 16px;
-    line-height: 1.5;
-    padding: 20px;
+/* Dark mode (prefers) */
+@media (prefers-color-scheme: dark){
+  :root{--bg:#07101a; --card:#07161d; --muted:#9aa6b2; --accent:#7fb0ff; --text:#e6eef9; --glass: rgba(255,255,255,0.02)}
+  body{background:var(--bg)}
 }
 
-/* Left Pane (Fixed on the left side) */
-.left-pane {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 250px;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    border-radius: 8px;
-    height: 100%;
-}
-
-/* Profile Image */
-.profilepic {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%; /* Circular image */
-    object-fit: cover;
-    margin-bottom: 15px;
-}
-
-/* Profile Name */
-.profile-name {
-    font-size: 18px;
-    font-weight: 400;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-/* Profile Bio */
-.profile-bio {
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 20px;
-}
-
-/* Menu Links (Text beside the profile) */
-.menu-link {
-    display: block;
-    font-size: 14px;
-    color: #333;
-    padding: 8px 0;
-    text-decoration: none;
-    transition: color 0.3s ease, padding-left 0.2s ease;
-}
-
-.menu-link:hover {
-    color: #0077cc; /* Blue on hover */
-    padding-left: 8px; /* Slight padding for hover effect */
-}
-
-/* Right Content Area */
-.content-area {
-    margin-left: 280px; /* Leave space for the left pane */
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Buttons */
-button, .btn {
-    font-size: 14px;
-    padding: 10px 20px;
-    border: none;
-    background-color: #0077cc; /* Blue background */
-    color: #fff; /* White text */
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s; /* Smooth transition for background and hover */
-    display: inline-block;
-    text-align: center;
-}
-
-/* Button Hover Effects */
-button:hover, .btn:hover {
-    background-color: #005fa3; /* Darker shade on hover */
-    transform: translateY(-2px); /* Subtle lift effect */
-}
-
-/* Focus Effect */
-button:focus, .btn:focus {
-    outline: none; /* Remove default outline */
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.6); /* Custom focus outline */
-}
-
-/* Disabled Buttons */
-button:disabled, .btn:disabled {
-    background-color: #ccc; /* Grey background for disabled state */
-    color: #777; /* Grey text */
-    cursor: not-allowed;
-    transform: none; /* No hover effect on disabled buttons */
-}
-
-/* Specific Button Styles for PDF, etc. */
-.pdf-btn, .etc-btn {
-    background-color: #4CAF50; /* Green background */
-    color: #fff; /* White text */
-    border-radius: 4px;
-}
-
-.pdf-btn:hover, .etc-btn:hover {
-    background-color: #45a049; /* Darker green on hover */
-}
-
-/* Button Icons (for PDF, etc.) */
-.pdf-btn i, .etc-btn i {
-    margin-right: 8px; /* Space between icon and text */
-}
-
-/* Link Hover Effects (for links like "noter", etc.) */
-a:hover {
-    text-decoration: none;
-    color: #0077cc;
-    transition: color 0.3s ease;
-}
-
-/* Noter text */
-.noter {
-    font-size: 9pt;
-    color: #777;
-}
-
-/* Tag and Separator */
-.tagsep {
-    padding: 4px;
-}
-
-.tag {
-    padding-right: 2px;
-}
-
-/* Shortened Conference */
-.confshort {
-    font-weight: 300;
-}
-
-/* Inline Conference Block */
-.conf {
-    display: inline-block;
-    padding-bottom: 4px;
-}
-
-/* Paper Styling */
-.paper {
-    border-left: 1px solid #ddd;
-}
-
-/* Responsive Layout (For screens larger than 768px) */
-@media (min-width: 768px) {
-    .fixed-posi {
-        position: fixed;
-    }
-}
-
-/* Responsive Layout (For smaller screens below 900px) */
-@media only screen and (max-width: 900px) {
-    .left-pane {
-        width: 200px; /* Smaller left pane on smaller screens */
-        top: 10px;
-    }
-
-    .profilepic {
-        width: 90px; /* Smaller profile image */
-        height: 90px;
-    }
-
-    .profile-name {
-        font-size: 16px;
-    }
-
-    .content-area {
-        margin-left: 220px; /* Adjust space for smaller left pane */
-    }
-}
+/* Accessibility focus */
+a:focus, button:focus{outline:3px solid rgba(11,102,194,0.15); outline-offset:2px}
