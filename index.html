@@ -10,206 +10,192 @@
     <!-- Google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-          crossorigin="anonymous">
+    <!-- External styles (separated) -->
+    <link rel="stylesheet" href="assets/styles.css">
 
     <title>Abhinav Java</title>
-
-    <style>
-      :root{
-        --bg: #ffffff;
-        --muted:#6b7280;
-        --accent:#1f2937;
-        --maxwidth:1100px;
-      }
-      html,body{height:100%;}
-      body{
-        font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-        background:var(--bg);
-        color:var(--accent);
-        -webkit-font-smoothing:antialiased;
-        -moz-osx-font-smoothing:grayscale;
-        font-size:16px; /* base readable size */
-        line-height:1.6;
-        padding-top:1rem;
-      }
-      .container{
-        max-width:var(--maxwidth);
-      }
-
-      /* Sidebar (uses sticky instead of fixed to avoid overlap when scrolling) */
-      .sidebar{
-        position: -webkit-sticky; /* Safari */
-        position: sticky;
-        top: 1.5rem;
-        align-self: start;
-      }
-      .name{
-        font-size:1.6rem;
-        font-weight:700;
-        margin-bottom:.25rem;
-      }
-      .profilepic{
-        width:140px;
-        height:140px;
-        object-fit:cover;
-        border-radius:10px;
-        border:2px solid #e6e6e6;
-      }
-      .menulink{display:block; margin-top:.5rem; color:#0b66c2; text-decoration:none;}
-      .menulink:hover{ text-decoration:underline; }
-
-      /* Main content */
-      .about p{margin-bottom:1rem; font-size:1rem;}
-      .in-text{color:#0b66c2;}
-      .header{font-weight:600; font-size:1.1rem; margin-bottom:.5rem;}
-
-      /* Updates panel */
-      .updates-tab{
-        max-height:340px;
-        overflow-y:auto;
-        background:#fafafa;
-      }
-      .update-item{padding:.6rem .75rem; border-bottom:1px solid #f0f0f0;}
-      .update-item time{font-weight:600; margin-right:.5rem; color:var(--muted);} 
-      .update-item p{margin:0;}
-      .update-item a{color:#0b66c2}
-
-      /* Responsive tweaks */
-      @media (max-width: 767.98px){
-        .sidebar{position:static; margin-bottom:1rem;}
-        .profilepic{width:100px; height:100px;}
-        body{font-size:15px}
-      }
-
-      /* Small visual polish */
-      .rounded-card{background:#fff; border-radius:12px; box-shadow:0 6px 18px rgba(20,20,30,0.04); padding:1rem}
-      a.external{color:#0b66c2}
-    </style>
   </head>
   <body>
-    <div class="container pt-4 allstuffp">
-      <div class="row">
 
-        <!-- Sidebar -->
-        <aside class="col-md-4 sidebar">
-          <div class="rounded-card text-center">
-            <p class="name">Abhinav Java</p>
-            <img src="assets/me.png" class="profilepic pt-2 pb-2" alt="Profile picture">
-            <div class="pt-3 text-left">
-              <a class="menulink" href="assets/AbhinavCV_2025.pdf" target="_blank">Curriculum Vitae</a>
-              <a class="menulink" href="https://scholar.google.com/citations?user=g--_R9wAAAAJ" target="_blank">Google Scholar</a>
-              <a class="menulink" href="mailto:java.abhinav99@gmail.com">Email</a>
-              <a class="menulink" href="https://github.com/java-abhinav07" target="_blank">GitHub</a>
-              <a class="menulink" href="https://www.linkedin.com/in/abhinav-java-2b57a4187/" target="_blank">LinkedIn</a>
-              <a class="menulink" href="https://twitter.com/abhinav_java" target="_blank">Twitter</a>
+    <!-- Navbar -->
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="container nav-inner">
+        <a class="brand" href="#">Abhinav Java</a>
+
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle menu">☰</button>
+
+        <div id="primaryNav" class="nav-links" hidden>
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#research">Research</a>
+          <a class="nav-link" href="#publications">Publications</a>
+          <a class="nav-link" href="#updates">Updates</a>
+          <a class="nav-link" href="#contact">Contact</a>
+          <a class="btn btn-ghost" href="assets/AbhinavCV_2025.pdf" target="_blank">Download CV</a>
+          <button id="themeToggle" class="btn btn-icon" aria-pressed="false" title="Toggle dark mode">🌙</button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container">
+
+      <!-- Hero -->
+      <header class="hero" id="about">
+        <div class="hero-grid">
+
+          <!-- Profile -->
+          <aside class="profile-card" aria-labelledby="profileName">
+            <img src="assets/me.png" alt="Abhinav Java" class="profile-img" id="profileImg">
+            <div class="profile-meta-wrap">
+              <h1 id="profileName">Abhinav Java</h1>
+              <p class="muted">Pre-Doctoral Research Fellow — Microsoft Research India</p>
+            </div>
+
+            <div class="profile-links">
+              <a href="mailto:java.abhinav99@gmail.com">✉️ java.abhinav99@gmail.com</a>
+              <a href="https://scholar.google.com/citations?user=g--_R9wAAAAJ" target="_blank">📚 Google Scholar</a>
+              <a href="https://github.com/java-abhinav07" target="_blank">💻 GitHub</a>
+              <a href="https://www.linkedin.com/in/abhinav-java-2b57a4187/" target="_blank">🔗 LinkedIn</a>
+            </div>
+
+          </aside>
+
+          <!-- Intro -->
+          <section class="intro-card">
+            <h2>Making ML systems efficient, reliable, and deployable</h2>
+            <p class="lead">I build methods so machine learning models can interact with data more effectively — conserving compute, preserving privacy, and operating robustly when data is scarce.</p>
+
+            <h3 id="research">Research directions</h3>
+            <ul class="research-list">
+              <li><strong>Data-efficient reasoning.</strong> Algorithms and architectures that extrapolate from dramatically less labeled data.</li>
+              <li><strong>Test-time interaction.</strong> Non-monolithic models that consult external sources (databases, retrieval, the web) without prohibitive costs.</li>
+              <li><strong>Responsible data use.</strong> Efficient auditing and control mechanisms for privacy, fairness and safety with practical accuracy trade-offs.</li>
+            </ul>
+
+            <p class="muted">At <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-india/" target="_blank">Microsoft Research India</a>, I work on efficient grounding for retrieval-augmented models (e.g., <em>FrugalRAG</em>) and evaluation benchmarks like <em>LiveDRBench</em>.</p>
+          </section>
+
+        </div>
+      </header>
+
+      <!-- Publications -->
+      <section class="card" id="publications" aria-labelledby="pubsHeading">
+        <div class="card-head">
+          <h3 id="pubsHeading">Publications</h3>
+          <div class="pub-actions">
+            <label class="file-upload" for="bibUpload">Import BibTeX</label>
+            <input id="bibUpload" type="file" accept=".bib" class="sr-only">
+            <button id="pasteBibBtn" class="btn btn-sm">Paste BibTeX</button>
+            <select id="sortSelect" class="select-sm">
+              <option value="year_desc">Sort: Year (new → old)</option>
+              <option value="year_asc">Sort: Year (old → new)</option>
+              <option value="title_asc">Sort: Title (A→Z)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="card-body pub-body">
+          <div class="pub-filters">
+            <label>Filter tags:</label>
+            <div id="tagCloud" class="tag-cloud" aria-hidden="false"></div>
+          </div>
+
+          <div id="pubList" class="pub-list" aria-live="polite">
+            <!-- Placeholder example publications (replace or import BibTeX) -->
+            <article class="pub-item" data-tags="privacy,vision" data-year="2022">
+              <h4 class="pub-title">Preventing Sensitive Attribute Leakage from Point Clouds</h4>
+              <p class="pub-meta">ECCV 2022 — with MIT Media Lab</p>
+              <p class="pub-abs muted">Privacy-preserving vision systems that reduce attribute leakage in 3D data.</p>
+            </article>
+
+            <article class="pub-item" data-tags="nlp,privacy" data-year="2025">
+              <h4 class="pub-title">Unlearnable Text Datasets</h4>
+              <p class="pub-meta">NAACL 2025</p>
+              <p class="pub-abs muted">Framework for making textual data difficult to learn by models while remaining useful for humans.</p>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Updates (timeline with icons) -->
+      <section class="card" id="updates">
+        <div class="card-head"><h3>Recent updates</h3></div>
+        <div class="card-body timeline" aria-live="polite">
+
+          <div class="timeline-item">
+            <div class="timeline-marker">🔬</div>
+            <div class="timeline-body">
+              <time datetime="2025-10">Oct 2025</time>
+              <p><strong>FrugalRAG</strong> — accepted to the NeurIPS Workshop on <em>Efficient Reasoning 2025</em>. Code: <a href="https://github.com/microsoft/FrugalRAG" target="_blank">github.com/microsoft/FrugalRAG</a>.</p>
             </div>
           </div>
-        </aside>
 
-        <!-- Main content -->
-        <main class="col-md-8">
-          <div class="rounded-card about">
-            <p>
-              I work on making machine learning models more <strong>efficient</strong> and <strong>reliable</strong> for real-world use. Data shapes modern ML systems — my goal is to design methods that let models interact with data more effectively so they are deployable under resource, privacy, and safety constraints.
-            </p>
-
-            <p>
-              My research centers on three interlinked directions:
-            </p>
-
-            <ol>
-              <li><strong>Data-efficient reasoning.</strong> How can models extrapolate from far less labeled data? Improving extrapolation and generalization under severe data constraints helps build robust systems for high-stakes settings.</li>
-              <li><strong>Test-time interaction with data.</strong> Can models be non-monolithic — efficiently consulting external sources (databases, the web, retrieval stores) at test time without prohibitive compute?</li>
-              <li><strong>Responsible data use.</strong> Efficiently auditing and controlling data and models — for privacy, fairness and safety — while preserving practical trade-offs with accuracy.</li>
-            </ol>
-
-            <p>
-              At <a class="in-text" href="https://www.microsoft.com/en-us/research/lab/microsoft-research-india/" target="_blank">Microsoft Research India</a>, my work has focused on efficient grounding for retrieval-augmented models. For example, <a class="in-text" href="https://arxiv.org/pdf/2507.07634" target="_blank">FrugalRAG</a> explores how smaller language models can learn <em>when to stop searching</em>, cutting compute while preserving performance. I also co-developed <strong>LiveDRBench</strong>, a scalable benchmark for evaluating modern reasoning agents.
-            </p>
-
-            <p>
-              In collaboration with <a class="in-text" href="https://people.iith.ac.in/vineethnb/" target="_blank">Prof. Vineeth N. Balasubramanian</a>, I studied task transfer for vision–language models and identified clusters of related tasks that inform efficient fine-tuning strategies.
-            </p>
-
-            <p>
-              I’m particularly interested in methods that increase user trust and control — for example, our work on <em>unlearnable text datasets</em> (NAACL 2025) presents a framework that makes inadvertent model training on sensitive text data difficult without significantly changing its utility for humans.
-            </p>
-
-            <p>
-              I received my B.Tech (CSE) from <a class="in-text" href="https://dtu.ac.in/" target="_blank">Delhi Technological University</a> in 2022. For more details see my <a class="in-text" href="assets/AbhinavCV_2025.pdf" target="_blank">CV</a> or reach out by <a class="in-text" href="mailto:java.abhinav99@gmail.com">email</a>.
-            </p>
-
-            <!-- Updates -->
-            <section class="pt-3">
-              <p class="header">Recent updates</p>
-              <div class="updates-tab border rounded p-2" aria-live="polite">
-
-                <!-- New additions (most recent first) -->
-                <div class="update-item">
-                  <p><time datetime="2025-10">Oct 2025</time> <strong>FrugalRAG</strong> accepted at the NeurIPS Workshop on <em>Efficient Reasoning 2025</em>. Code and examples are available on GitHub — <a class="external" href="https://github.com/microsoft/FrugalRAG" target="_blank">github.com/microsoft/FrugalRAG</a>.</p>
-                </div>
-
-                <div class="update-item">
-                  <p><time datetime="2025-09">Sep 2025</time> <strong>LiveDRBench</strong>, a challenging benchmark for deep research agents, is released on Hugging Face and accepted at the NeurIPS workshop on scaling environments for agents. Dataset & eval: <a class="external" href="https://huggingface.co/datasets/microsoft/LiveDRBench" target="_blank">Hugging Face: LiveDRBench</a>.</p>
-                </div>
-
-                <div class="update-item">
-                  <p><time datetime="2025-08">Aug 2025</time> <strong>Taskonomy in the era of large multimodal foundation models</strong> (collaboration with Prof. Vineeth) accepted at NeurIPS — <em>Unifying Representations in Neural Models</em>.</p>
-                </div>
-
-                <!-- Existing recent items, rewritten for clarity -->
-                <div class="update-item">
-                  <p><time datetime="2025-07">Jul 2025</time> Attended <strong>ICML 2025</strong> in Vancouver (July 13–19).</p>
-                </div>
-
-                <div class="update-item">
-                  <p><time datetime="2025-06">Jun 2025</time> <strong>FrugalRAG</strong> accepted to the ICML EsFoMo workshop; preprint available on arXiv. (See paper: <a class="external" href="https://arxiv.org/pdf/2507.07634" target="_blank">arXiv:2507.07634</a>).</p>
-                </div>
-
-                <div class="update-item">
-                  <p><time datetime="2025-02">Feb 2025</time> Released code for <strong>Unlearnable Text Datasets</strong> — <a class="external" href="https://github.com/AikyamLab/regtext" target="_blank">github.com/AikyamLab/regtext</a>. Paper accepted at NAACL 2025.</p>
-                </div>
-
-                <div class="update-item">
-                  <p><time datetime="2024-11">Nov 2024</time> Published preprint on unlearnable text datasets (<a class="external" href="https://arxiv.org/abs/2411.08506" target="_blank">arXiv:2411.08506</a>).</p>
-                </div>
-
-                <div class="update-item">
-                  <p><time datetime="2024-11">Nov 2024</time> Released code and website for <strong>ReEdit: Multimodal Exemplar-Based Image Editing</strong>. Paper accepted to WACV 2025. Code: <a class="external" href="https://github.com/reedit-diffusion/reedit-diffusion" target="_blank">github.com/reedit-diffusion/reedit-diffusion</a>.</p>
-                </div>
-
-                <div class="update-item">
-                  <p><time datetime="2024-09">Sep 2024</time> EMNLP 2024 (Main) acceptance: "Thinking Fair and Slow: Structured Prompts for LLM Debiasing".</p>
-                </div>
-
-                <div class="update-item">
-                  <p><time datetime="2024-08">Aug 2024</time> Joined <strong>Microsoft Research India</strong> as a Pre-Doctoral Research Fellow.</p>
-                </div>
-
-              </div>
-            </section>
-
+          <div class="timeline-item">
+            <div class="timeline-marker">🧭</div>
+            <div class="timeline-body">
+              <time datetime="2025-09">Sep 2025</time>
+              <p><strong>LiveDRBench</strong> — released on Hugging Face and accepted at the NeurIPS workshop on scaling environments for agents. <a href="https://huggingface.co/datasets/microsoft/LiveDRBench" target="_blank">Hugging Face</a>.</p>
+            </div>
           </div>
-        </main>
 
-      </div> <!-- End row -->
-    </div> <!-- End container -->
+          <div class="timeline-item">
+            <div class="timeline-marker">🧩</div>
+            <div class="timeline-body">
+              <time datetime="2025-08">Aug 2025</time>
+              <p><strong>Taskonomy in the era of large multimodal foundation models</strong> — accepted at NeurIPS (Unifying Representations in Neural Models).</p>
+            </div>
+          </div>
 
-    <!-- Optional JavaScript (kept minimal) -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-            crossorigin="anonymous"></script>
+          <!-- earlier items compact -->
+          <div class="timeline-item">
+            <div class="timeline-marker">📢</div>
+            <div class="timeline-body">
+              <time datetime="2025-07">Jul 2025</time>
+              <p>Attended <strong>ICML 2025</strong> in Vancouver (July 13–19).</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker">📄</div>
+            <div class="timeline-body">
+              <time datetime="2025-06">Jun 2025</time>
+              <p><strong>FrugalRAG</strong> — accepted to ICML EsFoMo workshop; preprint: <a href="https://arxiv.org/pdf/2507.07634" target="_blank">arXiv:2507.07634</a>.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Contact / quick links -->
+      <aside class="card" id="contact">
+        <div class="card-head"><h3>Quick links & contact</h3></div>
+        <div class="card-body">
+          <div class="links-grid">
+            <a class="link-btn" href="assets/AbhinavCV_2025.pdf" target="_blank">Curriculum Vitae</a>
+            <a class="link-btn" href="https://scholar.google.com/citations?user=g--_R9wAAAAJ" target="_blank">Google Scholar</a>
+            <a class="link-btn" href="https://github.com/java-abhinav07" target="_blank">GitHub</a>
+            <a class="link-btn" href="https://www.linkedin.com/in/abhinav-java-2b57a4187/" target="_blank">LinkedIn</a>
+          </div>
+
+          <div class="contact-block mt-3">
+            <p class="mb-1">Email: <a href="mailto:java.abhinav99@gmail.com">java.abhinav99@gmail.com</a></p>
+            <p class="muted mb-0">Based at Microsoft Research India</p>
+          </div>
+        </div>
+      </aside>
+
+      <footer class="site-footer">
+        <div class="foot-inner">
+          <div>&copy; <strong>Abhinav Java</strong> — 2025</div>
+          <div class="muted">Designed for clarity • Responsive • Accessible</div>
+        </div>
+      </footer>
+
+    </main>
+
+    <!-- External scripts -->
+    <script src="assets/scripts.js"></script>
   </body>
 </html>
