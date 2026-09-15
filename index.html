@@ -1,538 +1,736 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhinav Java</title>
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Abhinav Java">
+    <meta property="og:title" content="Abhinav Java">
+    <link rel="canonical" href="https://java-abhinav07.github.io/">
+    <meta property="og:url" content="https://java-abhinav07.github.io/">
+    <meta name="description" content="Abhinav Java — PhD student at CMU MLD. Research on language models, retrieval-augmented generation, and vision-language models.">
 
-<!-- begin SEO -->
-
-
-
-
-
-<title>Abhinav Java - Homepage</title>
-
-
-
-
-
-
-
-<meta property="og:locale" content="en">
-<meta property="og:site_name" content="Abhinav Java">
-<meta property="og:title" content="Abhinav Java">
-
-
-  <link rel="canonical" href="https://java-abhinav07.github.io/">
-  <meta property="og:url" content="https://java-abhinav07.github.io/">
-
-
-<!-- end SEO -->
-
-
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<script>
-  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
-</script>
-
-<!-- For all browsers -->
-<link rel="stylesheet" href="assets/css/main.css">
-
-<meta http-equiv="cleartype" content="on">
     <link rel="apple-touch-icon" sizes="180x180" href="images/fish.png">
-<link rel="icon" type="image/png" sizes="32x32" href="images/fish.png">
-<link rel="icon" type="image/png" sizes="16x16" href="images/fish.png">
-<link rel="manifest" href="images/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/fish.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/fish.png">
+    <link rel="manifest" href="images/site.webmanifest">
+    <meta name="theme-color" content="#fafaf8">
 
-<meta name="msapplication-TileColor" content="#000000">
-<meta name="msapplication-TileImage" content="images/mstile-144x144.png?v=M44lzPylqQ">
-<meta name="msapplication-config" content="images/browserconfig.xml?v=M44lzPylqQ">
-<meta name="theme-color" content="#ffffff">
-<link rel="stylesheet" href="assets/css/academicons.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap">
+    <link rel="stylesheet" href="assets/css/academicons.css"/>
 
-<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
+    <style>
+      /* ── Palette ── */
+      :root {
+        --bg: #fafaf8;
+        --surface: #ffffff;
+        --text: #1c1c1c;
+        --text-dim: #64696f;
+        --accent: #2c5f8a;
+        --accent-soft: #e2edf6;
+        --accent-glow: rgba(44, 95, 138, 0.08);
+        --border: #e6e6e2;
+        --border-faint: #f0efeb;
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+        --shadow-md: 0 4px 16px rgba(44, 95, 138, 0.08);
+        --badge-bg: #edf3f8;
+        --badge-text: #2c5f8a;
+        --nav-glass: rgba(250, 250, 248, 0.82);
+        --highlight-line: linear-gradient(90deg, #2c5f8a, #5a98c6, #2c5f8a);
+        --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+        --sans: 'Inter', system-ui, -apple-system, sans-serif;
+        --mono: 'JetBrains Mono', 'SF Mono', 'Consolas', monospace;
+        --col: 680px;
+        --gutter: 24px;
+      }
 
-<!-- Custom CSS for perfect circular profile image -->
-<style>
-.author__avatar img {
-  width: 150px !important;
-  height: 150px !important;
-  object-fit: cover !important;
-  border-radius: 50% !important;
-  border: 3px solid #f2f3f3 !important;
-}
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #0d1117;
+          --surface: #161b22;
+          --text: #dde3ea;
+          --text-dim: #7d8590;
+          --accent: #79b8ff;
+          --accent-soft: #1a2a3a;
+          --accent-glow: rgba(121, 184, 255, 0.06);
+          --border: #21262d;
+          --border-faint: #1a1e24;
+          --shadow-sm: 0 1px 3px rgba(0,0,0,0.15);
+          --shadow-md: 0 4px 16px rgba(0,0,0,0.25);
+          --badge-bg: #1a2a3a;
+          --badge-text: #79b8ff;
+          --nav-glass: rgba(13, 17, 23, 0.85);
+          --highlight-line: linear-gradient(90deg, #79b8ff, #58a6ff, #79b8ff);
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #0d1117;
+        --surface: #161b22;
+        --text: #dde3ea;
+        --text-dim: #7d8590;
+        --accent: #79b8ff;
+        --accent-soft: #1a2a3a;
+        --accent-glow: rgba(121, 184, 255, 0.06);
+        --border: #21262d;
+        --border-faint: #1a1e24;
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.15);
+        --shadow-md: 0 4px 16px rgba(0,0,0,0.25);
+        --badge-bg: #1a2a3a;
+        --badge-text: #79b8ff;
+        --nav-glass: rgba(13, 17, 23, 0.85);
+        --highlight-line: linear-gradient(90deg, #79b8ff, #58a6ff, #79b8ff);
+      }
 
-@media (max-width: 57.8125em) {
-  .author__avatar img {
-    width: 100px !important;
-    height: 100px !important;
-  }
-}
-</style>
+      /* ── Foundation ── */
+      *, *::before, *::after { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: var(--sans);
+        color: var(--text);
+        background: var(--bg);
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.72;
+        -webkit-font-smoothing: antialiased;
+      }
+      a { color: var(--accent); text-decoration: none; transition: color 0.15s; }
+      a:hover { text-decoration: underline; }
+      a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+      img { max-width: 100%; display: block; }
+      strong { font-weight: 600; }
 
-<!-- end custom head snippets -->
+      /* ── Scroll progress ── */
+      .progress-track {
+        position: fixed; top: 0; left: 0; right: 0; height: 2px;
+        z-index: 200; background: transparent;
+      }
+      .progress-bar {
+        height: 100%; width: 0%;
+        background: var(--highlight-line);
+        background-size: 200% 100%;
+        animation: shimmer 3s linear infinite;
+        transition: width 0.08s linear;
+      }
+      @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
 
+      /* ── Nav ── */
+      .nav {
+        position: sticky; top: env(safe-area-inset-top, 0px); z-index: 100;
+        background: var(--nav-glass);
+        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border-faint);
+      }
+      .nav-inner {
+        max-width: var(--col); margin: 0 auto; padding: 0 var(--gutter);
+        display: flex; align-items: center; justify-content: space-between;
+        height: 50px;
+      }
+      .nav-name {
+        font-family: var(--serif); font-weight: 600; font-size: 1rem;
+        color: var(--text); text-decoration: none; letter-spacing: -0.015em;
+      }
+      .nav-name:hover { text-decoration: none; color: var(--accent); }
+      .nav-right { display: flex; align-items: center; gap: 1.1rem; }
+      .nav-right a {
+        color: var(--text-dim); font-size: 0.8rem; font-weight: 500;
+        letter-spacing: 0.01em; text-decoration: none;
+      }
+      .nav-right a:hover { color: var(--accent); text-decoration: none; }
+      .theme-btn {
+        background: none; border: none; cursor: pointer; font-size: 0.95rem;
+        padding: 4px 6px; line-height: 1; color: var(--text-dim); border-radius: 6px;
+        transition: background 0.15s, color 0.15s;
+      }
+      .theme-btn:hover { background: var(--accent-glow); color: var(--text); }
+      .hamburger {
+        display: none; background: none; border: none; cursor: pointer;
+        padding: 4px; color: var(--text-dim);
+      }
+      .hamburger svg { width: 20px; height: 20px; }
+
+      @media (max-width: 600px) {
+        .hamburger { display: block; }
+        .nav-right {
+          display: none; position: absolute; top: 50px; left: 0; right: 0;
+          background: var(--nav-glass); backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          flex-direction: column; padding: 0.75rem var(--gutter) 1rem;
+          border-bottom: 1px solid var(--border-faint); gap: 0.5rem;
+        }
+        .nav-right.open { display: flex; }
+        .nav-right a { font-size: 0.88rem; }
+      }
+
+      /* ── Wrapper ── */
+      .col { max-width: var(--col); margin: 0 auto; padding-inline: var(--gutter); }
+
+      /* ── Hero ── */
+      .hero { padding: 3.5rem 0 2rem; }
+      .hero-row { display: flex; gap: 1.75rem; align-items: flex-start; }
+      .hero-img {
+        flex-shrink: 0; width: 140px; height: 140px; border-radius: 50%;
+        object-fit: cover; border: 3px solid var(--border-faint);
+        box-shadow: var(--shadow-md);
+      }
+      .hero-body { flex: 1; min-width: 0; }
+      .hero-body h1 {
+        font-family: var(--serif); font-size: 1.75rem; font-weight: 600;
+        margin: 0 0 0.1rem; letter-spacing: -0.02em; line-height: 1.2;
+      }
+      .hero-sub {
+        color: var(--text-dim); font-size: 0.9rem; margin: 0 0 0.9rem; font-weight: 500;
+      }
+      .hero-prose { font-size: 0.92rem; line-height: 1.78; }
+      .hero-prose p { margin: 0 0 0.7rem; }
+
+      .pill-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+      .pill {
+        display: inline-flex; align-items: center; gap: 0.3rem;
+        padding: 0.3rem 0.65rem; border-radius: 20px;
+        font-size: 0.78rem; font-weight: 500;
+        color: var(--badge-text); background: var(--badge-bg);
+        text-decoration: none; transition: background 0.15s, box-shadow 0.15s;
+      }
+      .pill:hover { background: var(--accent-soft); box-shadow: var(--shadow-sm); text-decoration: none; }
+      .pill svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+      .aside-box {
+        margin-top: 1rem; padding: 0.7rem 0.9rem;
+        background: var(--accent-glow); border-radius: 8px;
+        font-size: 0.84rem; color: var(--text-dim); line-height: 1.6;
+        border-left: 2px solid var(--accent);
+      }
+
+      @media (max-width: 600px) {
+        .hero { padding: 2rem 0 1.5rem; }
+        .hero-row { flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
+        .hero-img { width: 110px; height: 110px; }
+        .hero-body h1 { font-size: 1.45rem; }
+        .pill-row { justify-content: center; }
+        .aside-box { text-align: left; }
+      }
+
+      /* ── Sections ── */
+      .section { padding: 2rem 0; border-top: 1px solid var(--border-faint); }
+      .section-head {
+        font-family: var(--serif); font-size: 1.15rem; font-weight: 600;
+        margin: 0 0 1.15rem; letter-spacing: -0.01em; color: var(--text);
+      }
+
+      /* ── Fade in ── */
+      .reveal {
+        opacity: 0; transform: translateY(14px);
+        transition: opacity 0.55s ease, transform 0.55s ease;
+      }
+      .reveal.in { opacity: 1; transform: translateY(0); }
+      @media (prefers-reduced-motion: reduce) {
+        .reveal { opacity: 1; transform: none; transition: none; }
+      }
+
+      /* ── Staggered children ── */
+      .stagger > * {
+        opacity: 0; transform: translateY(10px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+      }
+      .stagger.in > * { opacity: 1; transform: translateY(0); }
+      .stagger.in > *:nth-child(1) { transition-delay: 0s; }
+      .stagger.in > *:nth-child(2) { transition-delay: 0.06s; }
+      .stagger.in > *:nth-child(3) { transition-delay: 0.12s; }
+      .stagger.in > *:nth-child(4) { transition-delay: 0.18s; }
+      .stagger.in > *:nth-child(5) { transition-delay: 0.24s; }
+      @media (prefers-reduced-motion: reduce) {
+        .stagger > * { opacity: 1; transform: none; transition: none; }
+      }
+
+      /* ── Timeline ── */
+      .tl { display: flex; flex-direction: column; gap: 0; }
+      .tl-row { display: flex; gap: 0.9rem; padding: 0.55rem 0; align-items: center; }
+      .tl-logo {
+        flex-shrink: 0; width: 34px; height: 34px; border-radius: 8px;
+        display: flex; align-items: center; justify-content: center;
+        background: var(--accent-glow); border: 1px solid var(--border-faint);
+        overflow: hidden;
+      }
+      .tl-logo svg { width: 20px; height: 20px; }
+      .tl-when {
+        flex-shrink: 0; width: 100px; font-size: 0.78rem; font-weight: 600;
+        color: var(--text-dim); font-variant-numeric: tabular-nums;
+        font-family: var(--mono);
+      }
+      .tl-what { font-size: 0.88rem; line-height: 1.6; }
+      .tl-what a { font-weight: 500; }
+      @media (max-width: 600px) {
+        .tl-row { flex-wrap: wrap; gap: 0.4rem; }
+        .tl-when { width: auto; }
+      }
+
+      /* ── Papers ── */
+      .paper {
+        display: flex; gap: 0.9rem; padding: 0.85rem;
+        border-radius: 10px; background: var(--surface);
+        border: 1px solid var(--border-faint); margin-bottom: 0.6rem;
+        transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s;
+      }
+      .paper:hover {
+        box-shadow: var(--shadow-md); border-color: var(--border);
+        transform: translateY(-1px);
+      }
+      .paper-img {
+        flex-shrink: 0; width: 100px; height: 72px;
+        border-radius: 6px; object-fit: cover; background: var(--accent-glow);
+      }
+      .paper-body { flex: 1; min-width: 0; }
+      .paper-venue {
+        display: inline-block; font-size: 0.65rem; font-weight: 600;
+        letter-spacing: 0.05em; text-transform: uppercase;
+        color: var(--badge-text); background: var(--badge-bg);
+        padding: 0.12rem 0.4rem; border-radius: 3px; margin-bottom: 0.2rem;
+      }
+      .paper-title {
+        font-weight: 600; font-size: 0.87rem; margin: 0.15rem 0;
+        line-height: 1.35; color: var(--text);
+      }
+      .paper-auth { font-size: 0.78rem; color: var(--text-dim); line-height: 1.45; }
+      .paper-acts { display: flex; gap: 0.4rem; margin-top: 0.3rem; flex-wrap: wrap; }
+      .paper-acts a {
+        font-size: 0.72rem; font-weight: 500; padding: 0.1rem 0.35rem;
+        border-radius: 3px; background: var(--badge-bg); color: var(--accent);
+        text-decoration: none; transition: background 0.15s;
+      }
+      .paper-acts a:hover { background: var(--accent-soft); text-decoration: none; }
+
+      @media (max-width: 600px) {
+        .paper { flex-direction: column; }
+        .paper-img { width: 100%; height: 110px; }
+      }
+
+      /* ── News ── */
+      .news { display: flex; flex-direction: column; gap: 0; }
+      .news-row {
+        display: flex; gap: 0.7rem; padding: 0.45rem 0;
+        align-items: baseline; font-size: 0.86rem; line-height: 1.6;
+        border-bottom: 1px solid var(--border-faint);
+      }
+      .news-row:last-child { border-bottom: none; }
+      .news-when {
+        flex-shrink: 0; width: 72px; font-size: 0.75rem; font-weight: 600;
+        color: var(--text-dim); font-variant-numeric: tabular-nums;
+        font-family: var(--mono);
+      }
+      .news-what { flex: 1; }
+      @media (max-width: 600px) {
+        .news-row { flex-direction: column; gap: 0.05rem; }
+        .news-when { width: auto; }
+      }
+
+      /* ── Misc / personality ── */
+      .misc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+      .misc-card {
+        padding: 0.85rem; border-radius: 10px; background: var(--surface);
+        border: 1px solid var(--border-faint);
+      }
+      .misc-label {
+        font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+        letter-spacing: 0.06em; color: var(--text-dim); margin-bottom: 0.35rem;
+      }
+      .misc-val { font-size: 0.88rem; line-height: 1.6; }
+      @media (max-width: 600px) {
+        .misc-grid { grid-template-columns: 1fr; }
+      }
+
+      /* ── Footer ── */
+      .foot {
+        border-top: 1px solid var(--border-faint); padding: 1.5rem 0 2.5rem;
+        margin-top: 1rem; text-align: center;
+        font-size: 0.76rem; color: var(--text-dim);
+      }
+      .foot a { color: var(--accent); }
+
+      /* ── Gallery (hidden for now) ── */
+      .gallery-grid {
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem;
+      }
+      .gallery-slot {
+        aspect-ratio: 4/3; background: var(--accent-glow); border-radius: 10px;
+        display: flex; align-items: center; justify-content: center;
+        overflow: hidden; border: 2px dashed var(--border);
+      }
+      .gallery-slot:hover { border-color: var(--accent); }
+      .gallery-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+      .gallery-ph { font-size: 0.75rem; color: var(--text-dim); opacity: 0.5; }
+      @media (max-width: 600px) { .gallery-grid { grid-template-columns: 1fr 1fr; } }
+    </style>
   </head>
 
   <body>
-
-    <!--[if lt IE 9]>
-<![endif]-->
-    <div class="masthead">
-  <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
-        <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg masthead__menu-home-item"><a href="#about-me">Homepage</a></li>
-          
-            <li class="masthead__menu-item"><a href="/#about-me">About Me</a></li>
-          
-            <li class="masthead__menu-item"><a href="/#-affiliations">Affiliations</a></li>
-          
-            <li class="masthead__menu-item"><a href="/#-publications-and-preprints">Selected Research Work</a></li>
-          
-            <li class="masthead__menu-item"><a href="/#-recent-updates">Recent Updates</a></li>
-          
-            <li class="masthead__menu-item"><a href="/#-misc">Misc</a></li>
-          
-        </ul>
-        <ul class="hidden-links hidden"></ul>
-      </nav>
-    </div>
-  </div>
-</div>
-
-    <div id="main" role="main">
-      
-  <div class="sidebar sticky">
-  
-
-<div itemscope itemtype="http://schema.org/Person" class="profile_box">
-
-  <div class="author__avatar">
-    <img src="assets/me.jpg" class="author__avatar" alt="Abhinav Java">
-  </div>
-
-  <div class="author__content">
-    <h3 class="author__name">Abhinav Java</h3>
-    <p class="author__bio">Microsoft Research, India</p>
-  </div>
-
-  <div class="author__urls-wrapper">
-    <ul class="author__urls social-icons">
-      
-      
-        <li><a href="mailto:java.abhinav99@gmail.com"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email</a></li>
-      
-      
-       
-      
-        <li><a href="https://x.com/abhinav_java"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-        <li><a href="https://github.com/java-abhinav07"><i class="fab fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-        <li><a href="https://scholar.google.com/citations?user=g--_R9wAAAAJ&hl=en"><i class="fas fa-fw fa-graduation-cap"></i> Google Scholar</a></li>
-      
-      
-        <li><a href="assets/AbhinavCV_2025.pdf"><i class="fas fa-fw fa-file-pdf" aria-hidden="true"></i> CV</a></li>
-      
-
-            
-
-      
-      
-      
-      
-    </ul>
-      <div class="author__urls_sm">
-      
-      
-        <a href="mailto:java.abhinav99@gmail.com"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i></a>
-      
-      
-       
-      
-        <a href="https://x.com/abhinav_java"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i></a>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-        <a href="https://github.com/java-abhinav07"><i class="fab fa-fw fa-github" aria-hidden="true"></i></a>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-        <a href="https://scholar.google.com/citations?user=g--_R9wAAAAJ&hl=en"><i class="fas fa-fw fa-graduation-cap"></i></a>
-      
-      
-        <a href="assets/AbhinavCV_2025.pdf"><i class="fas fa-fw fa-file-pdf" aria-hidden="true"></i></a>
-      
-      
-      
-      
-    </div>
-  </div>
-</div>
-
-  
-  </div>
-
-    
-      <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-        <meta itemprop="headline" content="">
-        <div class="page__inner-wrap">
-          <section class="page__content" itemprop="text">
-            
-<!-- # Oop! I am updating this page. Please come back later. 😄 -->
-<p><span class="anchor" id="about-me"></span></p>
-<h1 id="-about-me">�‍💻 About Me</h1>
-
-
-<p>Hi. My name is Abhinav Java. I'm a Research Fellow at Microsoft Research advised by <a href="https://amitsharma.in/" target="_blank">Dr. Amit Sharma</a>, <a href="https://www.microsoft.com/en-us/research/people/nagarajn/" target="_blank">Dr. Nagarajan Natarajan</a>, <a href="https://www.researchgate.net/scientific-contributions/Srivathsan-P-Koundinyan-2165791218" target="_blank">Dr. Srivathsan Koundinyan</a>, and 
-            <a href="https://people.iith.ac.in/vineethnb/" target="_blank">Prof. Vineeth N. Balasubramanian</a>. 
-Previously, I worked as a Research Associate at Adobe Media and Data Science Research Lab with <a href="https://scholar.google.com/citations?user=n8iUBg8AAAAJ">Balaji Krishnamurthy</a> and was fortunate to be advised by <a href="https://engineering.virginia.edu/faculty/chirag-agarwal" target="_blank">Prof. Chirag Agarwal</a> at the University of Virginia. 
-Even before that, I got my bachelor's degree in Computer Engineering from <a href="https://dtu.ac.in/" target="_blank">Delhi Technological University</a> (DCE), India. During my undergraduate studies, I collaborated with the <a href="https://www.media.mit.edu/groups/camera-culture/overview/" target="_blank">MIT Media Lab</a> advised by Ayush Chopra and completed research internships at IIT Bombay and Adobe.
-
-
-<p>I broadly work on the <b>reasoning</b> capabilities of language models by improving how they interact with data. Typically, models interact with data to update their parametric knowledge or at test-time, to incorporate information in-context. Most of my research is focused on developing new ways of making this interaction <b>efficient</b> and <b>reliable</b>. Some selected research works are presented in subsequent sections.</p>
-
-  
-<h1 id="-affiliations">🏢 Key Affiliations</h1>
-<ul>
-  <li><em>2024.08 - Present</em>     Research Fellow at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-india/">Microsoft Research</a>, Bengaluru, India</li>
-  <li><em>2022.08 - 2024.08</em>     Research Associate 1, 2 at <a href="https://adobe.mdsr.live/">Adobe MDSR</a>, Noida, India</li>
-  <li><em>2021</em>     Research Intern at <a href="https://adobe.mdsr.live/">Adobe MDSR</a>, Noida, India</li>
-  <li><em>2018.05 - 2022.08</em>     Undergraduate Student at <a href="https://dtu.ac.in/">Delhi Technological University</a>, Delhi, India</li>
-
-</ul>
-
-<h1 id="-publications-and-preprints">📝 Selected Research Work</h1>
-
-<p>* denotes equal contribution</p>
-
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">CVPR 2026 (Oral)</div><img src="images/nicons/task-transfer.png" alt="sym" width="100%" /></div></div>
-<div class="paper-box-text">
-
-    <p><strong>Understanding Task Transfer in VLMs</strong></p>
-
-    <p>Bhuvan Sachdeva*, Karan Uppal*, <strong>Abhinav Java*</strong>, Vineeth N Balasubramanian</p>
-
-    <p><strong><em>CVPR 2026 (Oral)</em></strong></p>
-
-
-    <p><a href="https://arxiv.org/abs/2511.18787">[arXiv]</a>, <a href="https://bhuvan-21.github.io/task-transfer-vlms/">[Project Page]</a></p>
-
-    <ul>
-      <li>We present a comprehensive analysis of zero-shot task-transfer in VLMs across 10+ datasets and three models.</li>
-      <li>We introduce a novel metric to quantify cross-task influence in VLM finetuning.</li>
-      <li>Our analysis reveals actionable insights – beneficial task cliques and transfer trends for effective finetuning strategies.</li>
-    </ul>
-
-  </div>
-</div>
-
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">ICLR 2026</div><img src="images/nicons/frugalrag.png" alt="sym" width="100%" /></div></div>
-<div class="paper-box-text">
-
-    <p><strong>FrugalRAG: Less is More in RL Finetuning for Multi-Hop Question Answering</strong></p>
-
-    <p><strong>Abhinav Java</strong>, Srivathsan Koundinyan, Nagarajan Natarajan, Amit Sharma</p>
-
-    <p><strong><em>ICLR 2026, NeurIPS Efficient Reasoning Workshop 2025</em></strong></p>
-
-
-    <p><a href="https://arxiv.org/abs/2507.07634">[arXiv]</a>, <a href="https://github.com/microsoft/FrugalRAG">[Code]</a></p>
-
-    <ul>
-      <li>We present a post-training framework for SLM-based multi-hop question answering RAG Agents.</li>
-      <li>We find that a two-stage curriculum that teaches policies to first explore exhaustively to maximize document recall and then learns when to stop is both data and compute efficient.</li>
-    </ul>
-
-  </div>
-</div>
-
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">ICLR 2026</div><img src="images/nicons/livedrbench.png" alt="sym" width="100%" /></div></div>
-<div class="paper-box-text">
-
-    <p><strong>Characterizing Deep Research: A Benchmark and Formal Definition</strong></p>
-
-    <p><strong>Abhinav Java*</strong>, Ashmit Khandelwal*, Sukruta Midigeshi*, Aaron Halfaker, Amit Deshpande, Navin Goyal, Ankur Gupta, Nagarajan Natarajan, Amit Sharma</p>
-
-    <p><strong><em>ICLR 2026, NeurIPS Scaling Environments for Agents Workshop 2025</em></strong></p>
-
-
-    <p><a href="https://arxiv.org/abs/2508.04183">[arXiv]</a>, <a href="https://huggingface.co/datasets/microsoft/LiveDRBench">[Dataset]</a></p>
-
-    <ul>
-      <li>We present a formal definition of deep research and an objective benchmark comprising 8 different domains (Science, Everyday Use, Prior Art, etc).</li>
-      <li>We find that even frontier models like OpenAI DR, Gemini DR, and Perplexity achieve a modest F1 score of <=55% on our benchmark.</li>
-    </ul>
-
-  </div>
-</div>
-
-
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">NAACL (Main) 2025</div><img src="images/nicons/regtext.png" alt="sym" width="100%" /></div></div>
-<div class="paper-box-text">
-
-    <p><strong>Towards Operationalizing Right to Data Protection</strong></p>
-
-    <p><strong>Abhinav Java*</strong>, Simra Shahid*, Chirag Agarwal</p>
-
-    <p><strong><em>NAACL (Main) 2025</em></strong></p>
-
-
-    <p><a href="https://arxiv.org/abs/2411.08506">[arXiv]</a>, <a href="https://github.com/AikyamLab/regtext">[Code]</a></p>
-
-    <ul>
-      <li>We present a framework for generating unlearnable text datasets. These datasets prevent data misuse by failing on test datasets despite converging normally during training.</li>
-      <li>We show that imperceptible perturbations can expose vulnerabilities of strong models like GPT-4, dropping their performance on sentiment analysis tasks below the zero-shot baseline.</li>
-    </ul>
-
-  </div>
-</div>
-
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">WACV 2025</div><img src="images/nicons/reedit.png" alt="sym" width="100%" /></div></div>
-<div class="paper-box-text">
-
-    <p><strong>ReEdit: Multimodal Exemplar-Based Image Editing</strong></p>
-
-    <p>Ashutosh Srivastava*, Tarun Menta*, <strong>Abhinav Java*</strong>, Avadhoot Jadhav, Silky Singh, Surgan Jandial, Balaji Krishnamurthy</p>
-
-    <p><strong><em>WACV 2025</em></strong></p>
-
-
-    <p><a href="https://arxiv.org/abs/2411.03982">[arXiv]</a>, <a href="https://reedit-diffusion.github.io/">[Code]</a></p>
-
-    <ul>
-      <li>We present an efficient inference time approach for image editing using edit exemplars.</li>
-      <li>We find that textual descriptions are not enough to perform faithful edits, incorporating edits in both image and text modality.</li>
-    </ul>
-
-  </div>
-</div>
-
-
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">AAAI 2024</div><img src="images/nicons/cafie.png" alt="sym" width="100%" /></div></div>
-<div class="paper-box-text">
-
-    <p><strong>All Should Be Equal in the Eyes of LMs: Counterfactually Aware Fair Text Generation</strong></p>
-
-    <p>Pragyan Banerjee*, <strong>Abhinav Java*</strong>, Surgan Jandial*, Simra Shahid*, Shaz Furniturewala, Balaji Krishnamurthy, Sumit Bhatia</p>
-
-    <p><strong><em>AAAI 2024</em></strong></p>
-
-
-    <p><a href="https://arxiv.org/abs/2311.05451">[arXiv]</a>, <a href="https://github.com/banerjeepragyan/CAFIE/">[Code]</a></p>
-
-    <ul>
-      <li>We present a framework to steer models towards unbiased generations using counterfactual contexts.</li>
-      <li>We find that re-weighing logits using probabilities distributions can encourage equitable responses across several benchmarks for varying model sizes.</li>
-    </ul>
-
-  </div>
-</div>
-
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">WACV 2023</div><img src="images/nicons/monomer.png" alt="sym" width="100%" /></div></div>
-<div class="paper-box-text">
-
-    <p><strong>One Shot Doc Snippet Detection: Towards Search in Document Beyond Text</strong></p>
-
-    <p><strong>Abhinav Java</strong>, Shripad Deshmukh, Milan Aggarwal, Surgan Jandial, Mausoom Sarkar, Balaji Krishnamurthy</p>
-
-    <p><strong><em>WACV 2023</em></strong></p>
-
-
-    <p><a href="https://openaccess.thecvf.com/content/WACV2023/papers/Java_One-Shot_Doc_Snippet_Detection_Powering_Search_in_Document_Beyond_Text_WACV_2023_paper.pdf">[arXiv]</a></p>
-
-    <ul>
-      <li>We highlight a new problem in document object detection of searching for arbitrary snippets using a novel example snippet.</li>
-      <li>To solve this, we generate a large scale training dataset using rudimentary object structures and propose a new architecture that fuses various modalities.</li>
-    </ul>
-
-  </div>
-</div>
-
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">ECCV 2022</div><img src="images/nicons/cbns.png" alt="sym" width="100%" /></div></div>
-<div class="paper-box-text">
-
-    <p><strong>Learning to Censor by Noisy Sampling</strong></p>
-
-    <p>Ayush Chopra, <strong>Abhinav Java</strong></a>, Abhishek Singh</a>, Vivek Sharma</a>, Ramesh Raskar</a></p>
-
-    <p><strong><em>ECCV 2022</em></strong></p>
-
-
-    <p><a href="https://arxiv.org/abs/2203.12192">[arXiv]</a>, <a href="https://github.com/java-abhinav07/CBNS-ECCV2022">[Code]</a></p>
-
-    <ul>
-      <li>We present an end-to-end differentiable sampler to protect 3D point clouds from perception attacks.</li>
-      <li>Our key insight is to leverage the localized saliency of perception tasks on point clouds to provide good privacy-utility trade-offs .</li>
-    </ul>
-
-  </div>
-</div>
-
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">NeurIPS 2021 Workshop</div><img src="images/nicons/benford.png" alt="sym" width="100%" /></div></div>
-<div class="paper-box-text">
-
-    <p><strong>Rethinking Neural Networks With Benford's Law</strong></p>
-
-    <p>Surya Kant Sahu, <strong>Abhinav Java</strong>, Arshad Shaikh, Yannic Kilcher</p>
-
-    <p><strong><em>NeurIPS ML4 Physical Sciences 2022</em></strong></p>
-
-
-    <p><a href="https://arxiv.org/pdf/2102.03313">[arXiv]</a>, <a href="https://github.com/The-Learning-Machines/RethinkingNNsWithBL">[Code]</a></p>
-
-    <ul>
-      <li>We study: Is the distribution of the Neural Network parameters related to the network’s generalization capability? </li>
-      <li>We define a new metric called Model Enthalpy which measures the closeness of NN parameters to the ideal Benford's distribution and provide experimental evidence that this metric can be used for Early Stopping for training shallow networks.</li>
-    </ul>
-
-  </div>
-</div>
-
-
-<h1 id="-recent-updates">📢 Recent Updates</h1>
-<ul>
-  <li><em>Oct 2025</em> <strong>VLM Task Transferability</strong> accepted to CVPR 2026 as an Oral Paper! Joint work with Bhuvan, Karan, and Vineeth NB.</li>
-  <li><em>Oct 2025</em> <strong>FrugalRAG</strong> and <strong>LiveDRBench</strong> are accepted to ICLR 2026! Thanks to all the co-authors for their efforts!</li>
-  <li><em>Oct 2025</em> <strong>FrugalRAG</strong> is accepted to the NeurIPS 2025 Workshop on <em>Efficient Reasoning</em>. Official code: <a href="https://github.com/microsoft/FrugalRAG">github.com/microsoft/FrugalRAG</a>.</li>
-<li><em>Sept 2025</em> Participated in a <strong>Fireside Chat on Deep Research</strong> at Plutos Dev.</li>
-  <li><em>Sep 2025</em> <strong>LiveDRBench</strong> — released on Hugging Face and accepted at the NeurIPS 2025 Workshop on <em>Scaling Environments for Agents</em>. <a href="https://huggingface.co/datasets/microsoft/LiveDRBench">Hugging Face</a>.</li>
-<li><em>Aug 2025</em> Gave a career talk at <strong>DTU AI Summer School</strong>.</li>
-  <li><em>Aug 2025</em> Understanding <strong>Task Transfer</strong> in VLMs, our analysis paper is accepted at NeurIPS 2025 Workshop on <em>Unifying Representations in Neural Models</em>.</li>
-  <li><em>Jul 2025</em> Attended <strong>ICML 2025</strong> in Vancouver (July 13–19) to present FrugalRAG.</li>
-  <li><em>Jun 2025</em> Faster and flexible SLMs for retrieval intensive reasoning! <strong>FrugalRAG</strong> is accepted at ICML EsFoMo workshop. Preprint: <a href="https://arxiv.org/pdf/2507.07634">arXiv:2507.07634</a>.</li>
-  <li><em>Feb 2025</em> <strong>Unlearnable Text Datasets</strong> accepted at <em>NAACL 2025 (Main)</em>. Code released: <a href="https://github.com/AikyamLab/regtext">GitHub</a>.</li>
-  <li><em>Nov 2024</em> Want to edit images without long, descriptive prompts? Use <strong>ReEdit</strong>! Our latest work on Exemplar-Based Image Editing accepted at <em>WACV 2025</em> and <em>ECCV-AI4VA 2024</em>. Code available at <a href="https://reedit-diffusion.github.io/">Project page</a>.</li>
-  <li><em>Sep 2024</em> <strong>Thinking Fair and Slow</strong> is accepted at <em>EMNLP 2024 (Main)</em>! We show how effective structured prompting really is for debiasing LLMs.</li>
-  <li><em>Aug 2024</em> Joined <strong>Microsoft Research India</strong> as a Pre-Doctoral Research Fellow.</li>
-</ul>
-
-<h1 id="-services">🗒 Services</h1>
-<ul>
-  <li><strong>Reviewer</strong>: CVPR ’26, ICLR ’26, CVPR ’25, KDD ’24, CVPR’24, U&ME@ECCV’24, WACV’23, ML4PS@NeurIPS’22, ECCV’22
- </li>
-</ul>
-
-<h1 id="-misc">⚽ Misc</h1>
-<ul>
-  <li>I love playing and watching football. In a past life, I used to represent my high school and college football team.</li>
-</ul>
-
-          </section>
+    <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+
+    <!-- ── Nav ── -->
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href="#" class="nav-name">AJ</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 010 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 010 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 010 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+        </button>
+        <div class="nav-right" id="navRight">
+          <a href="#about">About</a>
+          <a href="#work">Research</a>
+          <a href="#news">Updates</a>
+          <a href="#misc">Misc</a>
+          <button class="theme-btn" id="themeBtn" aria-label="Toggle theme" title="Toggle theme">&#9789;</button>
         </div>
-      </article>
-    </div>
+      </div>
+    </nav>
 
-    <script src="assets/js/main.min.js"></script>
+    <main class="col">
 
+      <!-- ═══════════ HERO ═══════════ -->
+      <section class="hero" id="about">
+        <div class="hero-row">
+          <img class="hero-img" src="assets/me.jpg" alt="Abhinav Java" width="140" height="140">
+          <div class="hero-body">
+            <h1>Abhinav Java</h1>
+            <p class="hero-sub">PhD Student &middot; Machine Learning Department &middot; Carnegie Mellon University</p>
 
+            <div class="hero-prose">
+              <p>I develop ways for language models to efficiently find, use, and learn from large unstructured information. My work spans retrieval-augmented generation, efficient post-training, and vision-language models.</p>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3CXTTZKE7K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+              <p>Before CMU, I was a Research Fellow at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-india/" target="_blank">Microsoft Research India</a> (with <a href="https://amitsharma.in/" target="_blank">Amit Sharma</a> and <a href="https://www.microsoft.com/en-us/research/people/nagarajn/" target="_blank">Nagarajan Natarajan</a>), a Research Associate at <a href="https://adobe.mdsr.live/" target="_blank">Adobe Research</a>, and an undergrad at <a href="https://dtu.ac.in/" target="_blank">Delhi Technological University</a> where I got to collaborate with the <a href="https://www.media.mit.edu/groups/camera-culture/overview/" target="_blank">MIT Media Lab</a>.</p>
+            </div>
 
-  gtag('config', "G-3CXTTZKE7K");
-</script>
+            <div class="pill-row">
+              <a class="pill" href="mailto:java.abhinav99@gmail.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+                Email
+              </a>
+              <a class="pill" href="https://scholar.google.com/citations?user=g--_R9wAAAAJ&hl=en" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+                Scholar
+              </a>
+              <a class="pill" href="https://github.com/java-abhinav07" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub
+              </a>
+              <a class="pill" href="https://x.com/abhinav_java" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                Twitter
+              </a>
+              <a class="pill" href="assets/AbhinavCV_2025.pdf" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                CV
+              </a>
+            </div>
 
-<!-- Statcounter code for My homepage https://java-abhinav07.github.io/ on
-Google Sites (new) -->
-<script type="text/javascript">
-  var sc_project=12834493; 
-  var sc_invisible=1; 
-  var sc_security="6f019326"; 
-  </script>
-  <script type="text/javascript"
-  src="https://www.statcounter.com/counter/counter.js" async></script>
-  <noscript><div class="statcounter"><a title="Web Analytics"
-  href="https://statcounter.com/" target="_blank"><img class="statcounter"
-  src="https://c.statcounter.com/12834493/0/6f019326/1/" alt="Web Analytics"
-  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-  <!-- End of Statcounter Code -->
+            <div class="aside-box">
+              I'm responsive over email and happy to chat about research, collaborations, and grad school applications.
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <!-- ═══════════ AFFILIATIONS ═══════════ -->
+      <section class="section reveal" id="affiliations">
+        <h2 class="section-head">Affiliations</h2>
+        <div class="tl stagger">
+          <div class="tl-row">
+            <div class="tl-logo">
+              <!-- CMU: Tartan shield -->
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v6c0 5.25 3.83 10.15 9 11.25C17.17 23.15 21 18.25 21 13V7l-9-5z" fill="#c41230"/><text x="12" y="16" text-anchor="middle" font-size="9" font-weight="700" fill="#fff" font-family="Inter,sans-serif">C</text></svg>
+            </div>
+            <span class="tl-when">2026 &ndash; now</span>
+            <div class="tl-what">PhD Student, <a href="https://www.ml.cmu.edu/" target="_blank">Carnegie Mellon University, MLD</a></div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-logo">
+              <!-- Microsoft: 4-color window -->
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8.5" height="8.5" rx="1" fill="#f25022"/><rect x="12.5" y="3" width="8.5" height="8.5" rx="1" fill="#7fba00"/><rect x="3" y="12.5" width="8.5" height="8.5" rx="1" fill="#00a4ef"/><rect x="12.5" y="12.5" width="8.5" height="8.5" rx="1" fill="#ffb900"/></svg>
+            </div>
+            <span class="tl-when">2024 &ndash; 26</span>
+            <div class="tl-what">Research Fellow, <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-india/" target="_blank">Microsoft Research India</a></div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-logo">
+              <!-- Adobe: Red A -->
+              <svg viewBox="0 0 24 24" fill="none"><path d="M3 21h7.2L12 16.5l-3.5 4.5H3zm18 0h-7.2L12 16.5l3.5 4.5H21zM12 3L3 21h4.5L12 10.5 16.5 21H21L12 3z" fill="#ff0000"/></svg>
+            </div>
+            <span class="tl-when">2022 &ndash; 24</span>
+            <div class="tl-what">Research Associate, <a href="https://adobe.mdsr.live/" target="_blank">Adobe Research (MDSR)</a></div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-logo">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M3 21h7.2L12 16.5l-3.5 4.5H3zm18 0h-7.2L12 16.5l3.5 4.5H21zM12 3L3 21h4.5L12 10.5 16.5 21H21L12 3z" fill="#ff0000"/></svg>
+            </div>
+            <span class="tl-when">2021</span>
+            <div class="tl-what">Research Intern, <a href="https://adobe.mdsr.live/" target="_blank">Adobe Research (MDSR)</a></div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-logo">
+              <!-- DTU: Blue shield -->
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v6c0 5.25 3.83 10.15 9 11.25C17.17 23.15 21 18.25 21 13V7l-9-5z" fill="#1a3d7c"/><text x="12" y="15.5" text-anchor="middle" font-size="7.5" font-weight="700" fill="#fff" font-family="Inter,sans-serif">DTU</text></svg>
+            </div>
+            <span class="tl-when">2018 &ndash; 22</span>
+            <div class="tl-what">B.Tech Computer Engineering, <a href="https://dtu.ac.in/" target="_blank">Delhi Technological University</a></div>
+          </div>
+        </div>
+      </section>
 
-<script>
-    $(document).ready(function () {
-        
-        var gsDataBaseUrl = 'https://cdn.jsdelivr.net/gh/YoungXinyu1802/java-abhinav07.github.io@'
-        
-        $.getJSON(gsDataBaseUrl + "google-scholar-stats/gs_data.json", function (data) {
-            var totalCitation = data['citedby']
-            document.getElementById('total_cit').innerHTML = totalCitation;
-            var citationEles = document.getElementsByClassName('show_paper_citations')
-            Array.prototype.forEach.call(citationEles, element => {
-                var paperId = element.getAttribute('data')
-                var numCitations = data['publications'][paperId]['num_citations']
-                element.innerHTML = '| Citations: ' + numCitations;
-            });
+      <!-- ═══════════ SELECTED RESEARCH ═══════════ -->
+      <section class="section reveal" id="work">
+        <h2 class="section-head">Selected Research</h2>
+        <p style="font-size:0.78rem; color:var(--text-dim); margin:0 0 1rem;">* equal contribution</p>
+
+        <div class="paper">
+          <img class="paper-img" src="images/nicons/task-transfer.png" alt="">
+          <div class="paper-body">
+            <span class="paper-venue">CVPR 2026 &middot; Oral</span>
+            <p class="paper-title">Understanding Task Transfer in VLMs</p>
+            <p class="paper-auth">Bhuvan Sachdeva*, Karan Uppal*, <strong>Abhinav Java*</strong>, Vineeth N Balasubramanian</p>
+            <div class="paper-acts">
+              <a href="https://arxiv.org/abs/2511.18787" target="_blank">arXiv</a>
+              <a href="https://bhuvan-21.github.io/task-transfer-vlms/" target="_blank">Project</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper">
+          <img class="paper-img" src="images/nicons/frugalrag.png" alt="">
+          <div class="paper-body">
+            <span class="paper-venue">ICLR 2026</span>
+            <p class="paper-title">FrugalRAG: Less is More in RL Finetuning for Multi-Hop Question Answering</p>
+            <p class="paper-auth"><strong>Abhinav Java</strong>, Srivathsan Koundinyan, Nagarajan Natarajan, Amit Sharma</p>
+            <div class="paper-acts">
+              <a href="https://arxiv.org/abs/2507.07634" target="_blank">arXiv</a>
+              <a href="https://github.com/microsoft/FrugalRAG" target="_blank">Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper">
+          <img class="paper-img" src="images/nicons/livedrbench.png" alt="">
+          <div class="paper-body">
+            <span class="paper-venue">ICLR 2026</span>
+            <p class="paper-title">Characterizing Deep Research: A Benchmark and Formal Definition</p>
+            <p class="paper-auth"><strong>Abhinav Java*</strong>, Ashmit Khandelwal*, Sukruta Midigeshi*, Aaron Halfaker, Amit Deshpande, Navin Goyal, Ankur Gupta, Nagarajan Natarajan, Amit Sharma</p>
+            <div class="paper-acts">
+              <a href="https://arxiv.org/abs/2508.04183" target="_blank">arXiv</a>
+              <a href="https://huggingface.co/datasets/microsoft/LiveDRBench" target="_blank">Dataset</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper">
+          <img class="paper-img" src="images/nicons/regtext.png" alt="">
+          <div class="paper-body">
+            <span class="paper-venue">NAACL 2025</span>
+            <p class="paper-title">Towards Operationalizing Right to Data Protection</p>
+            <p class="paper-auth"><strong>Abhinav Java*</strong>, Simra Shahid*, Chirag Agarwal</p>
+            <div class="paper-acts">
+              <a href="https://arxiv.org/abs/2411.08506" target="_blank">arXiv</a>
+              <a href="https://github.com/AikyamLab/regtext" target="_blank">Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper">
+          <img class="paper-img" src="images/nicons/reedit.png" alt="">
+          <div class="paper-body">
+            <span class="paper-venue">WACV 2025</span>
+            <p class="paper-title">ReEdit: Multimodal Exemplar-Based Image Editing</p>
+            <p class="paper-auth">Ashutosh Srivastava*, Tarun Menta*, <strong>Abhinav Java*</strong>, Avadhoot Jadhav, Silky Singh, Surgan Jandial, Balaji Krishnamurthy</p>
+            <div class="paper-acts">
+              <a href="https://arxiv.org/abs/2411.03982" target="_blank">arXiv</a>
+              <a href="https://reedit-diffusion.github.io/" target="_blank">Project</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper">
+          <img class="paper-img" src="images/nicons/cafie.png" alt="">
+          <div class="paper-body">
+            <span class="paper-venue">AAAI 2024</span>
+            <p class="paper-title">All Should Be Equal in the Eyes of LMs: Counterfactually Aware Fair Text Generation</p>
+            <p class="paper-auth">Pragyan Banerjee*, <strong>Abhinav Java*</strong>, Surgan Jandial*, Simra Shahid*, Shaz Furniturewala, Balaji Krishnamurthy, Sumit Bhatia</p>
+            <div class="paper-acts">
+              <a href="https://arxiv.org/abs/2311.05451" target="_blank">arXiv</a>
+              <a href="https://github.com/banerjeepragyan/CAFIE/" target="_blank">Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper">
+          <img class="paper-img" src="images/nicons/monomer.png" alt="">
+          <div class="paper-body">
+            <span class="paper-venue">WACV 2023</span>
+            <p class="paper-title">One Shot Doc Snippet Detection: Powering Search in Document Beyond Text</p>
+            <p class="paper-auth"><strong>Abhinav Java</strong>, Shripad Deshmukh, Milan Aggarwal, Surgan Jandial, Mausoom Sarkar, Balaji Krishnamurthy</p>
+            <div class="paper-acts">
+              <a href="https://openaccess.thecvf.com/content/WACV2023/papers/Java_One-Shot_Doc_Snippet_Detection_Powering_Search_in_Document_Beyond_Text_WACV_2023_paper.pdf" target="_blank">Paper</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper">
+          <img class="paper-img" src="images/nicons/cbns.png" alt="">
+          <div class="paper-body">
+            <span class="paper-venue">ECCV 2022</span>
+            <p class="paper-title">Learning to Censor by Noisy Sampling</p>
+            <p class="paper-auth">Ayush Chopra, <strong>Abhinav Java</strong>, Abhishek Singh, Vivek Sharma, Ramesh Raskar</p>
+            <div class="paper-acts">
+              <a href="https://arxiv.org/abs/2203.12192" target="_blank">arXiv</a>
+              <a href="https://github.com/java-abhinav07/CBNS-ECCV2022" target="_blank">Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper">
+          <img class="paper-img" src="images/nicons/benford.png" alt="">
+          <div class="paper-body">
+            <span class="paper-venue">NeurIPS Workshop 2022</span>
+            <p class="paper-title">Rethinking Neural Networks With Benford's Law</p>
+            <p class="paper-auth">Surya Kant Sahu, <strong>Abhinav Java</strong>, Arshad Shaikh, Yannic Kilcher</p>
+            <div class="paper-acts">
+              <a href="https://arxiv.org/pdf/2102.03313" target="_blank">arXiv</a>
+              <a href="https://github.com/The-Learning-Machines/RethinkingNNsWithBL" target="_blank">Code</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ NEWS ═══════════ -->
+      <section class="section reveal" id="news">
+        <h2 class="section-head">Updates</h2>
+        <div class="news stagger">
+          <div class="news-row"><span class="news-when">Oct 25</span><div class="news-what"><strong>VLM Task Transferability</strong> accepted to CVPR 2026 as an Oral!</div></div>
+          <div class="news-row"><span class="news-when">Oct 25</span><div class="news-what"><strong>FrugalRAG</strong> and <strong>LiveDRBench</strong> accepted to ICLR 2026.</div></div>
+          <div class="news-row"><span class="news-when">Oct 25</span><div class="news-what"><strong>FrugalRAG</strong> at NeurIPS 2025 Efficient Reasoning Workshop. <a href="https://github.com/microsoft/FrugalRAG" target="_blank">Code</a>.</div></div>
+          <div class="news-row"><span class="news-when">Sep 25</span><div class="news-what">Fireside Chat on Deep Research at Plutos Dev.</div></div>
+          <div class="news-row"><span class="news-when">Sep 25</span><div class="news-what"><strong>LiveDRBench</strong> on <a href="https://huggingface.co/datasets/microsoft/LiveDRBench" target="_blank">Hugging Face</a> + NeurIPS 2025 SEA Workshop.</div></div>
+          <div class="news-row"><span class="news-when">Aug 25</span><div class="news-what">Career talk at <strong>DTU AI Summer School</strong>.</div></div>
+          <div class="news-row"><span class="news-when">Aug 25</span><div class="news-what">Task Transfer analysis at NeurIPS 2025 UniReps Workshop.</div></div>
+          <div class="news-row"><span class="news-when">Jul 25</span><div class="news-what">Presented FrugalRAG at <strong>ICML 2025</strong> in Vancouver.</div></div>
+          <div class="news-row"><span class="news-when">Jun 25</span><div class="news-what"><strong>FrugalRAG</strong> at ICML EsFoMo Workshop. <a href="https://arxiv.org/pdf/2507.07634" target="_blank">Preprint</a>.</div></div>
+          <div class="news-row"><span class="news-when">Feb 25</span><div class="news-what">Unlearnable Text Datasets at <strong>NAACL 2025 (Main)</strong>. <a href="https://github.com/AikyamLab/regtext" target="_blank">Code</a>.</div></div>
+          <div class="news-row"><span class="news-when">Nov 24</span><div class="news-what"><strong>ReEdit</strong> at WACV 2025 and ECCV-AI4VA 2024.</div></div>
+          <div class="news-row"><span class="news-when">Sep 24</span><div class="news-what"><strong>Thinking Fair and Slow</strong> at EMNLP 2024 (Main).</div></div>
+          <div class="news-row"><span class="news-when">Aug 24</span><div class="news-what">Joined <strong>Microsoft Research India</strong> as a Pre-Doctoral Research Fellow.</div></div>
+        </div>
+      </section>
+
+      <!-- ═══════════ MISC ═══════════ -->
+      <section class="section reveal" id="misc">
+        <h2 class="section-head">Beyond the lab</h2>
+        <div class="misc-grid">
+          <div class="misc-card">
+            <div class="misc-label">Football</div>
+            <div class="misc-val">I've played my whole life &mdash; represented my high school and college teams. Still chase every ball like it's a cup final.</div>
+          </div>
+          <div class="misc-card">
+            <div class="misc-label">Mentorship</div>
+            <div class="misc-val">Mentored several research interns at Adobe and volunteered teaching science to students from underserved communities. Easily the most rewarding part.</div>
+          </div>
+          <div class="misc-card">
+            <div class="misc-label">Reviewing</div>
+            <div class="misc-val">CVPR '26, ICLR '26, CVPR '25, KDD '24, CVPR '24, U&ME@ECCV '24, WACV '23, ML4PS@NeurIPS '22, ECCV '22</div>
+          </div>
+          <div class="misc-card">
+            <div class="misc-label">Fun fact</div>
+            <div class="misc-val">My first NeurIPS workshop paper started as a question about neural network statistics &mdash; and a collaboration with <a href="https://www.youtube.com/@YannicKilcher" target="_blank">Yannic Kilcher</a>.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ GALLERY (commented out — uncomment when photos are ready) ═══════════ -->
+      <!--
+      <section class="section reveal" id="gallery">
+        <h2 class="section-head">Snapshots</h2>
+        <p style="font-size:0.88rem; color:var(--text-dim); margin:0 0 0.75rem;">Travels, football grounds, and moments off the clock.</p>
+        <div class="gallery-grid">
+          <div class="gallery-slot"><span class="gallery-ph">Travel photo</span></div>
+          <div class="gallery-slot"><span class="gallery-ph">Football ground</span></div>
+          <div class="gallery-slot"><span class="gallery-ph">Travel photo</span></div>
+          <div class="gallery-slot"><span class="gallery-ph">Football ground</span></div>
+          <div class="gallery-slot"><span class="gallery-ph">Travel photo</span></div>
+          <div class="gallery-slot"><span class="gallery-ph">Football ground</span></div>
+        </div>
+      </section>
+      -->
+
+    </main>
+
+    <footer class="foot">
+      <div class="col">
+        <p>Built with care &middot; &copy; 2026 Abhinav Java</p>
+      </div>
+    </footer>
+
+    <script>
+    (function(){
+      /* ── Progress bar ── */
+      var bar = document.getElementById('progressBar');
+      function onScroll() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+      }
+      window.addEventListener('scroll', onScroll, {passive:true});
+
+      /* ── Reveal on scroll ── */
+      var els = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){
+            if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+          });
+        }, {threshold: 0.1, rootMargin: '0px 0px -30px 0px'});
+        els.forEach(function(el){ obs.observe(el); });
+      } else { els.forEach(function(el){ el.classList.add('in'); }); }
+
+      /* ── Theme ── */
+      var btn = document.getElementById('themeBtn');
+      function getTheme(){ try{return localStorage.getItem('aj-theme')}catch(e){return null} }
+      function setTheme(t){
+        document.documentElement.setAttribute('data-theme', t);
+        btn.textContent = t==='dark' ? '☀️' : '☽';
+        btn.setAttribute('aria-pressed', t==='dark'?'true':'false');
+        try{localStorage.setItem('aj-theme',t)}catch(e){}
+      }
+      var s = getTheme();
+      if(s==='dark'||s==='light') setTheme(s); else btn.textContent='☽';
+      btn.addEventListener('click', function(){
+        var c = document.documentElement.getAttribute('data-theme');
+        setTheme(c==='dark'?'light':'dark');
+      });
+
+      /* ── Mobile nav ── */
+      var ham = document.getElementById('hamburger');
+      var nr = document.getElementById('navRight');
+      ham.addEventListener('click', function(){
+        var open = nr.classList.toggle('open');
+        ham.setAttribute('aria-expanded', open?'true':'false');
+      });
+      nr.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){ nr.classList.remove('open'); ham.setAttribute('aria-expanded','false'); });
+      });
+
+      /* ── Active nav on scroll ── */
+      var secs = document.querySelectorAll('section[id]');
+      function hlNav(){
+        var y = window.scrollY + 70;
+        secs.forEach(function(sec){
+          var top = sec.offsetTop, h = sec.offsetHeight, id = sec.id;
+          var link = document.querySelector('.nav-right a[href="#'+id+'"]');
+          if(link){ link.style.color = (y>=top && y<top+h) ? 'var(--accent)' : ''; }
         });
-    })
-</script>
+      }
+      window.addEventListener('scroll', hlNav, {passive:true});
+      hlNav();
+    })();
+    </script>
 
-<footer style="text-align: center; padding: 2em 0; margin-top: 3em; border-top: 1px solid #f2f3f3; color: #7a8288; font-size: 0.9em;">
-  <p>Template inspired by <a href="https://github.com/RayeRen/acad-homepage.github.io" target="_blank" style="color: #2471a3;">RayeRen/acad-homepage.github.io</a> and <a href="https://youngxinyu1802.github.io/" target="_blank" style="color: #2471a3;">youngxinyu1802.github.io</a></p>
-</footer>
-
+    <!-- Analytics (preserved from original) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3CXTTZKE7K"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-3CXTTZKE7K');</script>
+    <script>var sc_project=12834493;var sc_invisible=1;var sc_security="6f019326";</script>
+    <script src="https://www.statcounter.com/counter/counter.js" async></script>
   </body>
 </html>
-
-
-
-
-
