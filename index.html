@@ -41,7 +41,7 @@
         --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
         --sans: 'Inter', system-ui, -apple-system, sans-serif;
         --mono: 'JetBrains Mono', 'SF Mono', 'Consolas', monospace;
-        --col: 680px;
+        --col: 740px;
         --gutter: 24px;
       }
 
@@ -218,36 +218,12 @@
         margin: 0 0 1.15rem; letter-spacing: -0.01em; color: var(--text);
       }
 
-      /* ── Fade in ── */
-      .reveal {
-        opacity: 0; transform: translateY(14px);
-        transition: opacity 0.55s ease, transform 0.55s ease;
-      }
-      .reveal.in { opacity: 1; transform: translateY(0); }
-      @media (prefers-reduced-motion: reduce) {
-        .reveal { opacity: 1; transform: none; transition: none; }
-      }
-
-      /* ── Staggered children ── */
-      .stagger > * {
-        opacity: 0; transform: translateY(10px);
-        transition: opacity 0.4s ease, transform 0.4s ease;
-      }
-      .stagger.in > * { opacity: 1; transform: translateY(0); }
-      .stagger.in > *:nth-child(1) { transition-delay: 0s; }
-      .stagger.in > *:nth-child(2) { transition-delay: 0.06s; }
-      .stagger.in > *:nth-child(3) { transition-delay: 0.12s; }
-      .stagger.in > *:nth-child(4) { transition-delay: 0.18s; }
-      .stagger.in > *:nth-child(5) { transition-delay: 0.24s; }
-      @media (prefers-reduced-motion: reduce) {
-        .stagger > * { opacity: 1; transform: none; transition: none; }
-      }
 
       /* ── Timeline ── */
       .tl { display: flex; flex-direction: column; gap: 0; }
       .tl-row { display: flex; gap: 0.9rem; padding: 0.5rem 0; align-items: baseline; }
       .tl-when {
-        flex-shrink: 0; width: 100px; font-size: 0.78rem; font-weight: 600;
+        flex-shrink: 0; width: 110px; font-size: 0.78rem; font-weight: 600;
         color: var(--text-dim); font-variant-numeric: tabular-nums;
         font-family: var(--mono);
       }
@@ -384,12 +360,12 @@
           <img class="hero-img" src="assets/me.jpg" alt="Abhinav Java" width="140" height="140">
           <div class="hero-body">
             <h1>Abhinav Java</h1>
-            <p class="hero-sub">PhD Student &middot; Machine Learning Department &middot; Carnegie Mellon University</p>
+            <p class="hero-sub">PhD Student, Machine Learning Department, Carnegie Mellon University</p>
 
             <div class="hero-prose">
-              <p>I develop ways for language models to efficiently find, use, and learn from large unstructured information. My work spans retrieval-augmented generation, efficient post-training, and vision-language models.</p>
+              <p>I develop ways for language models to efficiently find, use, and learn from large unstructured data sources. My work spans retrieval-augmented generation, efficient post-training, and vision-language models.</p>
 
-              <p>Before CMU, I was a Research Fellow at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-india/" target="_blank">Microsoft Research India</a> (with <a href="https://amitsharma.in/" target="_blank">Amit Sharma</a> and <a href="https://www.microsoft.com/en-us/research/people/nagarajn/" target="_blank">Nagarajan Natarajan</a>), a Research Associate at <a href="https://adobe.mdsr.live/" target="_blank">Adobe Research</a>, and an undergrad at <a href="https://dtu.ac.in/" target="_blank">Delhi Technological University</a> where I got to collaborate with the <a href="https://www.media.mit.edu/groups/camera-culture/overview/" target="_blank">MIT Media Lab</a>.</p>
+              <p>Before CMU, I was a Research Fellow at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-india/" target="_blank">Microsoft Research India</a> (with <a href="https://amitsharma.in/" target="_blank">Amit Sharma</a> and <a href="https://www.microsoft.com/en-us/research/people/nagarajn/" target="_blank">Nagarajan Natarajan</a>). Before that, I worked as a Research Associate at <a href="https://adobe.mdsr.live/" target="_blank">Adobe Research</a>, and did an undergrad in CS at <a href="https://dtu.ac.in/" target="_blank">Delhi Technological University</a> where I got to collaborate with the <a href="https://www.media.mit.edu/groups/camera-culture/overview/" target="_blank">MIT Media Lab</a>.</p>
             </div>
 
             <div class="pill-row">
@@ -450,7 +426,7 @@
       </section>
 
       <!-- ═══════════ SELECTED RESEARCH ═══════════ -->
-      <section class="section reveal" id="work">
+      <section class="section" id="work">
         <h2 class="section-head">Selected Research</h2>
         <p style="font-size:0.78rem; color:var(--text-dim); margin:0 0 1rem;">* equal contribution</p>
 
@@ -592,12 +568,12 @@
       </section>
 
       <!-- ═══════════ MISC ═══════════ -->
-      <section class="section reveal" id="misc">
+      <section class="section" id="misc">
         <h2 class="section-head">Beyond the lab</h2>
         <div class="misc-grid">
           <div class="misc-card">
             <div class="misc-label">Football</div>
-            <div class="misc-val">I've played my whole life. Currently washed but used to represent my high school and college teams.</div>
+            <div class="misc-val">I've played my whole life. Currently washed but used represent my high school and college teams.</div>
           </div>
           <div class="misc-card">
             <div class="misc-label">Mentorship</div>
@@ -608,7 +584,7 @@
             <div class="misc-val">CVPR '26, ICLR '26, CVPR '25, KDD '24, CVPR '24, U&ME@ECCV '24, WACV '23, ML4PS@NeurIPS '22, ECCV '22</div>
           </div>
           <div class="misc-card">
-            <div class="misc-label">How it all started</div>
+            <div class="misc-label">How it started</div>
             <div class="misc-val">My first NeurIPS workshop paper started as a question about neural network statistics, and a serendipitous collaboration with <a href="https://www.youtube.com/@YannicKilcher" target="_blank">Yannic Kilcher</a>.</div>
           </div>
         </div>
@@ -616,7 +592,7 @@
 
       <!-- ═══════════ GALLERY (commented out — uncomment when photos are ready) ═══════════ -->
       <!--
-      <section class="section reveal" id="gallery">
+      <section class="section" id="gallery">
         <h2 class="section-head">Snapshots</h2>
         <p style="font-size:0.88rem; color:var(--text-dim); margin:0 0 0.75rem;">Travels, football grounds, and moments off the clock.</p>
         <div class="gallery-grid">
@@ -647,17 +623,6 @@
         bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
       }
       window.addEventListener('scroll', onScroll, {passive:true});
-
-      /* ── Reveal on scroll ── */
-      var els = document.querySelectorAll('.reveal');
-      if ('IntersectionObserver' in window) {
-        var obs = new IntersectionObserver(function(entries){
-          entries.forEach(function(e){
-            if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
-          });
-        }, {threshold: 0.1, rootMargin: '0px 0px -30px 0px'});
-        els.forEach(function(el){ obs.observe(el); });
-      } else { els.forEach(function(el){ el.classList.add('in'); }); }
 
       /* ── Theme ── */
       var btn = document.getElementById('themeBtn');
