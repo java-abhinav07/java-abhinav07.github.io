@@ -245,14 +245,7 @@
 
       /* ── Timeline ── */
       .tl { display: flex; flex-direction: column; gap: 0; }
-      .tl-row { display: flex; gap: 0.9rem; padding: 0.55rem 0; align-items: center; }
-      .tl-logo {
-        flex-shrink: 0; width: 34px; height: 34px; border-radius: 8px;
-        display: flex; align-items: center; justify-content: center;
-        background: var(--accent-glow); border: 1px solid var(--border-faint);
-        overflow: hidden;
-      }
-      .tl-logo svg { width: 20px; height: 20px; }
+      .tl-row { display: flex; gap: 0.9rem; padding: 0.5rem 0; align-items: baseline; }
       .tl-when {
         flex-shrink: 0; width: 100px; font-size: 0.78rem; font-weight: 600;
         color: var(--text-dim); font-variant-numeric: tabular-nums;
@@ -430,45 +423,26 @@
       </section>
 
       <!-- ═══════════ AFFILIATIONS ═══════════ -->
-      <section class="section reveal" id="affiliations">
+      <section class="section" id="affiliations">
         <h2 class="section-head">Affiliations</h2>
-        <div class="tl stagger">
+        <div class="tl">
           <div class="tl-row">
-            <div class="tl-logo">
-              <!-- CMU: Tartan shield -->
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v6c0 5.25 3.83 10.15 9 11.25C17.17 23.15 21 18.25 21 13V7l-9-5z" fill="#c41230"/><text x="12" y="16" text-anchor="middle" font-size="9" font-weight="700" fill="#fff" font-family="Inter,sans-serif">C</text></svg>
-            </div>
             <span class="tl-when">2026 &ndash; now</span>
             <div class="tl-what">PhD Student, <a href="https://www.ml.cmu.edu/" target="_blank">Carnegie Mellon University, MLD</a></div>
           </div>
           <div class="tl-row">
-            <div class="tl-logo">
-              <!-- Microsoft: 4-color window -->
-              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8.5" height="8.5" rx="1" fill="#f25022"/><rect x="12.5" y="3" width="8.5" height="8.5" rx="1" fill="#7fba00"/><rect x="3" y="12.5" width="8.5" height="8.5" rx="1" fill="#00a4ef"/><rect x="12.5" y="12.5" width="8.5" height="8.5" rx="1" fill="#ffb900"/></svg>
-            </div>
             <span class="tl-when">2024 &ndash; 26</span>
             <div class="tl-what">Research Fellow, <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-india/" target="_blank">Microsoft Research India</a></div>
           </div>
           <div class="tl-row">
-            <div class="tl-logo">
-              <!-- Adobe: Red A -->
-              <svg viewBox="0 0 24 24" fill="none"><path d="M3 21h7.2L12 16.5l-3.5 4.5H3zm18 0h-7.2L12 16.5l3.5 4.5H21zM12 3L3 21h4.5L12 10.5 16.5 21H21L12 3z" fill="#ff0000"/></svg>
-            </div>
             <span class="tl-when">2022 &ndash; 24</span>
             <div class="tl-what">Research Associate, <a href="https://adobe.mdsr.live/" target="_blank">Adobe Research (MDSR)</a></div>
           </div>
           <div class="tl-row">
-            <div class="tl-logo">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M3 21h7.2L12 16.5l-3.5 4.5H3zm18 0h-7.2L12 16.5l3.5 4.5H21zM12 3L3 21h4.5L12 10.5 16.5 21H21L12 3z" fill="#ff0000"/></svg>
-            </div>
             <span class="tl-when">2021</span>
             <div class="tl-what">Research Intern, <a href="https://adobe.mdsr.live/" target="_blank">Adobe Research (MDSR)</a></div>
           </div>
           <div class="tl-row">
-            <div class="tl-logo">
-              <!-- DTU: Blue shield -->
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v6c0 5.25 3.83 10.15 9 11.25C17.17 23.15 21 18.25 21 13V7l-9-5z" fill="#1a3d7c"/><text x="12" y="15.5" text-anchor="middle" font-size="7.5" font-weight="700" fill="#fff" font-family="Inter,sans-serif">DTU</text></svg>
-            </div>
             <span class="tl-when">2018 &ndash; 22</span>
             <div class="tl-what">B.Tech Computer Engineering, <a href="https://dtu.ac.in/" target="_blank">Delhi Technological University</a></div>
           </div>
@@ -598,9 +572,9 @@
       </section>
 
       <!-- ═══════════ NEWS ═══════════ -->
-      <section class="section reveal" id="news">
+      <section class="section" id="news">
         <h2 class="section-head">Updates</h2>
-        <div class="news stagger">
+        <div class="news">
           <div class="news-row"><span class="news-when">Oct 25</span><div class="news-what"><strong>VLM Task Transferability</strong> accepted to CVPR 2026 as an Oral!</div></div>
           <div class="news-row"><span class="news-when">Oct 25</span><div class="news-what"><strong>FrugalRAG</strong> and <strong>LiveDRBench</strong> accepted to ICLR 2026.</div></div>
           <div class="news-row"><span class="news-when">Oct 25</span><div class="news-what"><strong>FrugalRAG</strong> at NeurIPS 2025 Efficient Reasoning Workshop. <a href="https://github.com/microsoft/FrugalRAG" target="_blank">Code</a>.</div></div>
@@ -623,19 +597,19 @@
         <div class="misc-grid">
           <div class="misc-card">
             <div class="misc-label">Football</div>
-            <div class="misc-val">I've played my whole life &mdash; represented my high school and college teams. Still chase every ball like it's a cup final.</div>
+            <div class="misc-val">I've played my whole life. Currently washed but used to represent my high school and college teams.</div>
           </div>
           <div class="misc-card">
             <div class="misc-label">Mentorship</div>
-            <div class="misc-val">Mentored several research interns at Adobe and volunteered teaching science to students from underserved communities. Easily the most rewarding part.</div>
+            <div class="misc-val">Had the best time mentoring several research interns at Adobe.</div>
           </div>
           <div class="misc-card">
             <div class="misc-label">Reviewing</div>
             <div class="misc-val">CVPR '26, ICLR '26, CVPR '25, KDD '24, CVPR '24, U&ME@ECCV '24, WACV '23, ML4PS@NeurIPS '22, ECCV '22</div>
           </div>
           <div class="misc-card">
-            <div class="misc-label">Fun fact</div>
-            <div class="misc-val">My first NeurIPS workshop paper started as a question about neural network statistics &mdash; and a collaboration with <a href="https://www.youtube.com/@YannicKilcher" target="_blank">Yannic Kilcher</a>.</div>
+            <div class="misc-label">How it all started</div>
+            <div class="misc-val">My first NeurIPS workshop paper started as a question about neural network statistics, and a serendipitous collaboration with <a href="https://www.youtube.com/@YannicKilcher" target="_blank">Yannic Kilcher</a>.</div>
           </div>
         </div>
       </section>
