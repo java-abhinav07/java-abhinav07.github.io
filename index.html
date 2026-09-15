@@ -168,18 +168,23 @@
       /* ── Hero ── */
       .hero { padding: 3.5rem 0 2rem; }
       .hero-row { display: flex; gap: 1.75rem; align-items: flex-start; }
+      .hero-photo {
+        flex-shrink: 0; display: flex; flex-direction: column;
+        align-items: center; gap: 0.55rem; width: 140px;
+      }
       .hero-img {
-        flex-shrink: 0; width: 140px; height: 140px; border-radius: 50%;
+        width: 140px; height: 140px; border-radius: 50%;
         object-fit: cover; border: 3px solid var(--border-faint);
         box-shadow: var(--shadow-md);
+      }
+      .hero-caption {
+        margin: 0; text-align: center; font-size: 0.82rem; font-weight: 500;
+        letter-spacing: 0.02em; color: var(--text-dim); line-height: 1.4;
       }
       .hero-body { flex: 1; min-width: 0; }
       .hero-body h1 {
         font-family: var(--serif); font-size: 1.75rem; font-weight: 600;
-        margin: 0 0 0.1rem; letter-spacing: -0.02em; line-height: 1.2;
-      }
-      .hero-sub {
-        color: var(--text-dim); font-size: 0.9rem; margin: 0 0 0.9rem; font-weight: 500;
+        margin: 0 0 0.8rem; letter-spacing: -0.02em; line-height: 1.2;
       }
       .hero-prose { font-size: 0.92rem; line-height: 1.78; }
       .hero-prose p { margin: 0 0 0.7rem; }
@@ -205,6 +210,7 @@
       @media (max-width: 600px) {
         .hero { padding: 2rem 0 1.5rem; }
         .hero-row { flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
+        .hero-photo { width: 110px; }
         .hero-img { width: 110px; height: 110px; }
         .hero-body h1 { font-size: 1.45rem; }
         .pill-row { justify-content: center; }
@@ -357,10 +363,12 @@
       <!-- ═══════════ HERO ═══════════ -->
       <section class="hero" id="about">
         <div class="hero-row">
-          <img class="hero-img" src="assets/me.jpg" alt="Abhinav Java" width="140" height="140">
+          <div class="hero-photo">
+            <img class="hero-img" src="assets/me.jpg" alt="Abhinav Java" width="140" height="140">
+            <p class="hero-caption">PhD Student<br>CMU &middot; MLD</p>
+          </div>
           <div class="hero-body">
             <h1>Abhinav Java</h1>
-            <p class="hero-sub">PhD Student, Machine Learning Department, Carnegie Mellon University</p>
 
             <div class="hero-prose">
               <p>I develop ways for language models to efficiently find, use, and learn from large unstructured data sources. My work spans retrieval-augmented generation, efficient post-training, and vision-language models.</p>
