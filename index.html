@@ -38,7 +38,6 @@
         --badge-text: #2c5f8a;
         --pitch: #3d8a5c;
         --r2: #c23b2a;
-        --mark-stroke: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'%3E%3Cpath d='M2 6.5 C 40 3.5, 80 8, 120 5.2 S 175 4, 198 6' fill='none' stroke='%23c23b2a' stroke-width='2.2' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
         --nav-glass: rgba(250, 250, 248, 0.82);
         --highlight-line: linear-gradient(90deg, #2c5f8a, #5a98c6, #2c5f8a);
         --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
@@ -65,7 +64,6 @@
           --badge-text: #79b8ff;
           --pitch: #56b07c;
           --r2: #ff7a66;
-          --mark-stroke: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'%3E%3Cpath d='M2 6.5 C 40 3.5, 80 8, 120 5.2 S 175 4, 198 6' fill='none' stroke='%23ff7a66' stroke-width='2.2' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
           --nav-glass: rgba(13, 17, 23, 0.85);
           --highlight-line: linear-gradient(90deg, #79b8ff, #58a6ff, #79b8ff);
         }
@@ -86,7 +84,6 @@
         --badge-text: #79b8ff;
         --pitch: #56b07c;
         --r2: #ff7a66;
-        --mark-stroke: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'%3E%3Cpath d='M2 6.5 C 40 3.5, 80 8, 120 5.2 S 175 4, 198 6' fill='none' stroke='%23ff7a66' stroke-width='2.2' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
         --nav-glass: rgba(13, 17, 23, 0.85);
         --highlight-line: linear-gradient(90deg, #79b8ff, #58a6ff, #79b8ff);
       }
@@ -356,18 +353,6 @@
       }
       @media (max-width: 1000px) { .siuuu { font-size: 1.15rem; } }
 
-      /* ── Red pen underline on key phrases ── */
-      .mark {
-        background-image: var(--mark-stroke); background-repeat: no-repeat;
-        background-position: 0 100%; background-size: 100% 0.42em;
-        padding-bottom: 0.14em;
-      }
-      html.mark-ready .mark {
-        background-size: 0% 0.42em;
-        transition: background-size 0.8s cubic-bezier(.65,0,.35,1);
-      }
-      html.mark-ready .mark.on { background-size: 100% 0.42em; }
-
       /* ── Places globe ── */
       .places {
         margin-top: 0.75rem; padding: 0.85rem 0.85rem 1rem; border-radius: 10px;
@@ -414,9 +399,9 @@
             <h1>Abhinav Java</h1>
 
             <div class="hero-prose">
-              <p>I'm interested in developing ways for language models to find, use, and learn from <span class="mark">large unstructured data sources</span>. My work spans retrieval-augmented generation, efficient post-training, and vision-language models.</p>
+              <p>I'm interested in developing ways for language models to find, use, and learn from large unstructured data sources. My work spans retrieval-augmented generation, efficient post-training, and vision-language models.</p>
 
-              <p>I'm fascinated by the idea of <span class="mark">disentangling different kinds of knowledge</span> from a model's parameters. I believe language models that leverage external knowledge effectively, rather than memorizing everything in their weights, can be smaller, easier to adapt, and more reliable.</p>
+              <p>I'm fascinated by the idea of disentangling different kinds of knowledge from a model's parameters. I believe language models that leverage external knowledge effectively, rather than memorizing everything in their weights, can be smaller, easier to adapt, and more reliable.</p>
 
               <p>I'm a first-year PhD student in the Machine Learning Department at CMU, where I'm fortunate to be advised by <a href="https://akariasai.github.io/" target="_blank">Akari Asai</a>. Before CMU, I was a Research Fellow at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-india/" target="_blank">Microsoft Research India</a>, where I was lucky to work with <a href="https://amitsharma.in/" target="_blank">Amit Sharma</a> and <a href="https://www.microsoft.com/en-us/research/people/nagarajn/" target="_blank">Nagarajan Natarajan</a>. Even before that, I was a Research Associate at <a href="https://adobe.mdsr.live/" target="_blank">Adobe Research</a>. I did my undergrad in CS at <a href="https://dtu.ac.in/" target="_blank">Delhi Technological University</a>, where I collaborated with the <a href="https://www.media.mit.edu/groups/camera-culture/overview/" target="_blank">MIT Media Lab</a> and took my first steps as a researcher.</p>
             </div>
@@ -496,7 +481,7 @@
           <img class="paper-img" src="images/nicons/frugalrag.png" alt="">
           <div class="paper-body">
             <span class="paper-venue">ICLR 2026</span>
-            <p class="paper-title">FrugalRAG: <span class="mark">Less is More</span> in RL Finetuning for Multi-Hop Question Answering</p>
+            <p class="paper-title">FrugalRAG: Less is More in RL Finetuning for Multi-Hop Question Answering</p>
             <p class="paper-auth"><strong>Abhinav Java</strong>, Srivathsan Koundinyan, Nagarajan Natarajan, Amit Sharma</p>
             <div class="paper-acts">
               <a href="https://arxiv.org/abs/2507.07634" target="_blank">arXiv</a>
@@ -873,37 +858,6 @@
       new MutationObserver(schedule).observe(root, {attributes:true, attributeFilter:['data-theme']});
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedule);
       schedule();
-    })();
-
-    /* ── Red pen underlines: each one is drawn in full once you scroll to it ── */
-    (function(){
-      var marks = [].slice.call(document.querySelectorAll('.mark'));
-      if (!marks.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      document.documentElement.classList.add('mark-ready');
-      var queue = [], busy = false, scrolled = false;
-      function drawNext(){
-        if (busy || !queue.length) return;
-        busy = true;
-        queue.shift().classList.add('on');
-        setTimeout(function(){ busy = false; drawNext(); }, 450);   // one stroke after another, in reading order
-      }
-      function check(){
-        var H = window.innerHeight;
-        marks = marks.filter(function(m){
-          var r = m.getBoundingClientRect();
-          var inFirstScreen = r.top + window.scrollY < H * 0.75;
-          var ready = inFirstScreen ? scrolled : r.top < H * 0.72;   // first-screen phrases wait for the first scroll
-          if (ready && r.bottom > 0) { queue.push(m); return false; }
-          if (r.bottom <= 0) { m.classList.add('on'); return false; } // jumped past it: just show it
-          return true;
-        });
-        drawNext();
-        if (!marks.length) { window.removeEventListener('scroll', onScroll); }
-      }
-      function onScroll(){ if (window.scrollY > 8) scrolled = true; check(); }
-      window.addEventListener('scroll', onScroll, {passive:true});
-      setTimeout(function(){ scrolled = true; check(); }, 2500);       // never leave the intro unmarked
-      check();
     })();
 
     /* ── Places globe ── */
