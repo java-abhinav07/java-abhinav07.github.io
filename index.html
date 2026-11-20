@@ -17,7 +17,7 @@
     <link rel="manifest" href="images/site.webmanifest">
     <meta name="theme-color" content="#fafaf8">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&family=Caveat:wght@500;600&display=swap">
     <link rel="stylesheet" href="assets/css/academicons.css"/>
 
     <style>
@@ -36,6 +36,9 @@
         --shadow-md: 0 4px 16px rgba(44, 95, 138, 0.08);
         --badge-bg: #edf3f8;
         --badge-text: #2c5f8a;
+        --pitch: #3d8a5c;
+        --r2: #c23b2a;
+        --mark-stroke: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'%3E%3Cpath d='M2 6.5 C 40 3.5, 80 8, 120 5.2 S 175 4, 198 6' fill='none' stroke='%23c23b2a' stroke-width='2.2' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
         --nav-glass: rgba(250, 250, 248, 0.82);
         --highlight-line: linear-gradient(90deg, #2c5f8a, #5a98c6, #2c5f8a);
         --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
@@ -60,6 +63,9 @@
           --shadow-md: 0 4px 16px rgba(0,0,0,0.25);
           --badge-bg: #1a2a3a;
           --badge-text: #79b8ff;
+          --pitch: #56b07c;
+          --r2: #ff7a66;
+          --mark-stroke: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'%3E%3Cpath d='M2 6.5 C 40 3.5, 80 8, 120 5.2 S 175 4, 198 6' fill='none' stroke='%23ff7a66' stroke-width='2.2' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
           --nav-glass: rgba(13, 17, 23, 0.85);
           --highlight-line: linear-gradient(90deg, #79b8ff, #58a6ff, #79b8ff);
         }
@@ -78,6 +84,9 @@
         --shadow-md: 0 4px 16px rgba(0,0,0,0.25);
         --badge-bg: #1a2a3a;
         --badge-text: #79b8ff;
+        --pitch: #56b07c;
+        --r2: #ff7a66;
+        --mark-stroke: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'%3E%3Cpath d='M2 6.5 C 40 3.5, 80 8, 120 5.2 S 175 4, 198 6' fill='none' stroke='%23ff7a66' stroke-width='2.2' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
         --nav-glass: rgba(13, 17, 23, 0.85);
         --highlight-line: linear-gradient(90deg, #79b8ff, #58a6ff, #79b8ff);
       }
@@ -335,11 +344,45 @@
       .gallery-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
       .gallery-ph { font-size: 0.75rem; color: var(--text-dim); opacity: 0.5; }
       @media (max-width: 600px) { .gallery-grid { grid-template-columns: 1fr 1fr; } }
+      /* ── Pitch (scroll background) ── */
+      #pitch { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+      main.col, .foot { position: relative; z-index: 1; }
+      main.col { padding-bottom: 150px; }  /* room in front of the goal for the finish */
+      .siuuu {
+        position: fixed; left: 0; top: 0; z-index: 50; pointer-events: none;
+        font-family: 'Caveat', 'Comic Sans MS', cursive; font-weight: 600;
+        font-size: 1.35rem; line-height: 1; color: var(--r2); white-space: nowrap;
+        text-shadow: 0 0 6px var(--bg), 0 0 12px var(--bg);
+      }
+      @media (max-width: 1000px) { .siuuu { font-size: 1.15rem; } }
+
+      /* ── Red pen underline on key phrases ── */
+      .mark {
+        background-image: var(--mark-stroke); background-repeat: no-repeat;
+        background-position: 0 100%; background-size: 100% 0.42em;
+        padding-bottom: 0.14em;
+      }
+      html.mark-ready .mark {
+        background-size: 0% 0.42em;
+        transition: background-size 0.8s cubic-bezier(.65,0,.35,1);
+      }
+      html.mark-ready .mark.on { background-size: 100% 0.42em; }
+
+      /* ── Places globe ── */
+      .places {
+        margin-top: 0.75rem; padding: 0.85rem 0.85rem 1rem; border-radius: 10px;
+        background: var(--surface); border: 1px solid var(--border-faint); text-align: center;
+      }
+      .places-sub { font-size: 0.78rem; color: var(--text-dim); margin: 0.05rem 0 0.4rem; }
+      .globe-wrap { width: 100%; max-width: 300px; aspect-ratio: 1; margin-inline: auto; }
+      #globe { display: block; width: 100%; height: 100%; cursor: grab; touch-action: pan-y; }
+      #globe.dragging { cursor: grabbing; }
     </style>
   </head>
 
   <body>
     <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+    <canvas id="pitch" aria-hidden="true"></canvas>
 
     <!-- ── Nav ── -->
     <nav class="nav">
@@ -371,13 +414,15 @@
             <h1>Abhinav Java</h1>
 
             <div class="hero-prose">
-              <p>I develop ways for language models to efficiently find, use, and learn from large unstructured data sources. My work spans retrieval-augmented generation, efficient post-training, and vision-language models.</p>
+              <p>I'm interested in developing ways for language models to find, use, and learn from <span class="mark">large unstructured data sources</span>. My work spans retrieval-augmented generation, efficient post-training, and vision-language models.</p>
 
-              <p>Before CMU, I was a Research Fellow at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-india/" target="_blank">Microsoft Research India</a> (with <a href="https://amitsharma.in/" target="_blank">Amit Sharma</a> and <a href="https://www.microsoft.com/en-us/research/people/nagarajn/" target="_blank">Nagarajan Natarajan</a>). Even before that, I worked as a Research Associate at <a href="https://adobe.mdsr.live/" target="_blank">Adobe Research</a>, and did an undergrad in CS at <a href="https://dtu.ac.in/" target="_blank">Delhi Technological University</a>. During my undergrad, I collaborated with the <a href="https://www.media.mit.edu/groups/camera-culture/overview/" target="_blank">MIT Media Lab</a>.</p>
+              <p>I'm fascinated by the idea of <span class="mark">disentangling different kinds of knowledge</span> from a model's parameters. I believe language models that leverage external knowledge effectively, rather than memorizing everything in their weights, can be smaller, easier to adapt, and more reliable.</p>
+
+              <p>I'm a first-year PhD student in the Machine Learning Department at CMU, where I'm fortunate to be advised by <a href="https://akariasai.github.io/" target="_blank">Akari Asai</a>. Before CMU, I was a Research Fellow at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-india/" target="_blank">Microsoft Research India</a>, where I was lucky to work with <a href="https://amitsharma.in/" target="_blank">Amit Sharma</a> and <a href="https://www.microsoft.com/en-us/research/people/nagarajn/" target="_blank">Nagarajan Natarajan</a>. Even before that, I was a Research Associate at <a href="https://adobe.mdsr.live/" target="_blank">Adobe Research</a>. I did my undergrad in CS at <a href="https://dtu.ac.in/" target="_blank">Delhi Technological University</a>, where I collaborated with the <a href="https://www.media.mit.edu/groups/camera-culture/overview/" target="_blank">MIT Media Lab</a> and took my first steps as a researcher.</p>
             </div>
 
             <div class="pill-row">
-              <a class="pill" href="mailto:java.abhinav99@gmail.com">
+              <a class="pill" href="mailto:ajava@andrew.cmu.edu">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
                 Email
               </a>
@@ -451,7 +496,7 @@
           <img class="paper-img" src="images/nicons/frugalrag.png" alt="">
           <div class="paper-body">
             <span class="paper-venue">ICLR 2026</span>
-            <p class="paper-title">FrugalRAG: Less is More in RL Finetuning for Multi-Hop Question Answering</p>
+            <p class="paper-title">FrugalRAG: <span class="mark">Less is More</span> in RL Finetuning for Multi-Hop Question Answering</p>
             <p class="paper-auth"><strong>Abhinav Java</strong>, Srivathsan Koundinyan, Nagarajan Natarajan, Amit Sharma</p>
             <div class="paper-acts">
               <a href="https://arxiv.org/abs/2507.07634" target="_blank">arXiv</a>
@@ -486,6 +531,7 @@
           </div>
         </div>
 
+        <!-- Older papers (hidden; remove the comment markers to show them again)
         <div class="paper">
           <img class="paper-img" src="images/nicons/reedit.png" alt="">
           <div class="paper-body">
@@ -549,12 +595,14 @@
             </div>
           </div>
         </div>
+        -->
       </section>
 
       <!-- ═══════════ NEWS ═══════════ -->
       <section class="section" id="news">
         <h2 class="section-head">Updates</h2>
         <div class="news">
+          <div class="news-row"><span class="news-when">Aug 26</span><div class="news-what">Started my PhD at <strong>CMU</strong> with <a href="https://akariasai.github.io/" target="_blank">Akari Asai</a>.</div></div>
           <div class="news-row"><span class="news-when">Oct 25</span><div class="news-what"><strong>VLM Task Transferability</strong> accepted to CVPR 2026 as an Oral!</div></div>
           <div class="news-row"><span class="news-when">Oct 25</span><div class="news-what"><strong>FrugalRAG</strong> and <strong>LiveDRBench</strong> accepted to ICLR 2026.</div></div>
           <div class="news-row"><span class="news-when">Oct 25</span><div class="news-what"><strong>FrugalRAG</strong> at NeurIPS 2025 Efficient Reasoning Workshop. <a href="https://github.com/microsoft/FrugalRAG" target="_blank">Code</a>.</div></div>
@@ -573,11 +621,10 @@
 
       <!-- ═══════════ MISC ═══════════ -->
       <section class="section" id="misc">
-        <h2 class="section-head">Beyond the lab</h2>
         <div class="misc-grid">
           <div class="misc-card">
             <div class="misc-label">Football</div>
-            <div class="misc-val">I've played my whole life. Currently washed but used represent my high school and college teams.</div>
+            <div class="misc-val">I love playing football. Currently washed, but I used to represent my high school and college teams.</div>
           </div>
           <div class="misc-card">
             <div class="misc-label">Mentorship</div>
@@ -589,8 +636,14 @@
           </div>
           <div class="misc-card">
             <div class="misc-label">How it started</div>
-            <div class="misc-val">My first NeurIPS workshop paper started as a question about neural network statistics, and a serendipitous collaboration with <a href="https://www.youtube.com/@YannicKilcher" target="_blank">Yannic Kilcher</a>.</div>
+            <div class="misc-val">My first <a href="https://arxiv.org/abs/2102.03313" target="_blank">NeurIPS workshop paper</a> started as a question about neural network statistics, and a serendipitous collaboration with <a href="https://www.youtube.com/@YannicKilcher" target="_blank">Yannic Kilcher</a>.</div>
           </div>
+        </div>
+        <div class="places" id="places">
+          <div class="misc-label">Cities I&rsquo;ve been</div>
+          <p class="places-sub">37 cities across 4 continents. Drag the globe to explore.</p>
+          <div class="globe-wrap" id="globeWrap"><canvas id="globe" role="img" aria-label="Globe marking 37 cities I have travelled to"></canvas></div>
+          <script type="application/json" id="placesData">[["Delhi",28.61,77.21],["Bengaluru",12.97,77.59],["Pune",18.52,73.86],["Goa",15.4,73.9],["Mangalore",12.91,74.86],["Spiti",32.23,78.07],["Kullu",31.96,77.11],["Manali",32.24,77.19],["Jaipur",26.91,75.79],["Udaipur",24.59,73.71],["Kanpur",26.45,80.33],["Paris",48.86,2.35],["Amsterdam",52.37,4.9],["Utrecht",52.09,5.12],["Rotterdam",51.92,4.48],["Interlaken",46.69,7.86],["Grindelwald",46.62,8.04],["Lauterbrunnen",46.59,7.91],["Innsbruck",47.27,11.4],["Milan",45.46,9.19],["Venice",45.44,12.32],["Tromsø",69.65,18.96],["Senjahopen",69.48,17.55],["San Francisco",37.77,-122.42],["Los Angeles",34.05,-118.24],["San Diego",32.72,-117.16],["Vancouver",49.28,-123.12],["Whistler",50.12,-122.95],["Pittsburgh",40.44,-79.99],["New York City",40.71,-74.01],["Kimbolton",40.06,-81.58],["Tokyo",35.68,139.69],["Fukuoka",33.59,130.4],["Tel Aviv",32.09,34.78],["Jerusalem",31.77,35.21],["Rio de Janeiro",-22.91,-43.17],["São Paulo",-23.55,-46.63]]</script>
         </div>
       </section>
 
@@ -671,6 +724,315 @@
     </script>
 
     <!-- Analytics (preserved from original) -->
+    <script src="assets/js/globe-lib.min.js"></script>
+    <script src="assets/js/land-110m.js"></script>
+    <script>
+    /* ── Pitch: faint football pitch behind the page, a ball passed down as you scroll ── */
+    (function(){
+      var cv = document.getElementById('pitch');
+      if (!cv || !cv.getContext) return;
+      var ctx = cv.getContext('2d'), root = document.documentElement;
+      var main = document.querySelector('main'), foot = document.querySelector('.foot');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var W = 0, H = 0, raf = 0, goalAt = 0;
+      var siu = document.createElement('div');
+      siu.className = 'siuuu'; siu.setAttribute('aria-hidden', 'true'); siu.textContent = 'SIUUU!';
+      siu.style.opacity = '0';
+      document.body.appendChild(siu);
+      function v(n){ return getComputedStyle(root).getPropertyValue(n).trim(); }
+      function clamp(x,a,b){ return Math.min(b, Math.max(a, x)); }
+      function ease(p){ return p*p*(3-2*p); }
+      function lerp(a,b,t){ return a+(b-a)*t; }
+      function resize(){
+        var d = Math.min(window.devicePixelRatio || 1, 2);
+        W = window.innerWidth; H = window.innerHeight;
+        cv.width = Math.round(W*d); cv.height = Math.round(H*d);
+        ctx.setTransform(d,0,0,d,0,0);
+      }
+      function ballDoc(q, y0, y1){
+        var y = y0 + 50 + q*(y1 - y0 - 50), x;
+        if (W > 1000) {
+          var reach = Math.min(W/2 - 40, 370 + (W/2 - 370)*0.45);
+          x = W/2 + Math.tanh(3*Math.sin(q*Math.PI*7 - Math.PI/2))*reach*(1 - Math.pow(q, 8));
+        } else {
+          x = W/2 + Math.tanh(5*Math.sin(q*Math.PI*9 - Math.PI/2))*(W/2 - 12)*(1 - Math.pow(q, 8));
+        }
+        return [x, y];
+      }
+      function drawBall(x, y, r, rot){
+        ctx.globalAlpha = 0.18; ctx.fillStyle = '#000';
+        ctx.beginPath(); ctx.ellipse(x+3, y+r*0.9, r*0.9, r*0.3, 0, 0, 6.283); ctx.fill();
+        ctx.globalAlpha = 1; ctx.fillStyle = '#fff'; ctx.strokeStyle = '#1c1c1c'; ctx.lineWidth = 1.3;
+        ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill(); ctx.stroke();
+        ctx.save(); ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.clip();
+        ctx.translate(x, y); ctx.rotate(rot); ctx.fillStyle = '#1c1c1c';
+        function pent(cx, cy, s){ ctx.beginPath(); for (var i=0;i<5;i++){ var a=i*1.2566-1.5708; ctx.lineTo(cx+Math.cos(a)*s, cy+Math.sin(a)*s); } ctx.fill(); }
+        pent(0, 0, r*0.38);
+        for (var i=0;i<5;i++){ var a=i*1.2566-1.5708; pent(Math.cos(a)*r*1.02, Math.sin(a)*r*1.02, r*0.3); }
+        ctx.restore();
+      }
+      function draw(t){
+        ctx.clearRect(0, 0, W, H);
+        var sy = window.scrollY, max = Math.max(1, root.scrollHeight - H);
+        var y0 = main.offsetTop + 16, y1 = foot.offsetTop - 44;
+        var top = y0 - sy, bot = y1 - sy, mid = (top + bot)/2;
+        var L = W > 1000 ? Math.max(14, W/2 - 520) : 6, R = W - L, cx = W/2;
+        var pc = v('--pitch'), ink = v('--text'), red = v('--r2');
+
+        // markings
+        ctx.strokeStyle = pc; ctx.fillStyle = pc; ctx.globalAlpha = 0.24; ctx.lineWidth = 1.5;
+        ctx.strokeRect(L, top, R-L, bot-top);
+        ctx.beginPath(); ctx.moveTo(L, mid); ctx.lineTo(R, mid); ctx.stroke();
+        ctx.beginPath(); ctx.arc(cx, mid, Math.min(110, W*0.22), 0, 6.283); ctx.stroke();
+        ctx.beginPath(); ctx.arc(cx, mid, 3, 0, 6.283); ctx.fill();
+        var bw = Math.min(R-L-20, 520), sw = bw*0.45, pd = Math.min(190, bw*0.36), sd = pd*0.37, spot = pd*0.74, dr = pd*0.42;
+        var da = Math.acos(clamp((pd - spot)/dr, -1, 1));
+        [[top, 1], [bot, -1]].forEach(function(e){
+          var yy = e[0], k = e[1];
+          ctx.strokeRect(cx - bw/2, yy, bw, pd*k);
+          ctx.strokeRect(cx - sw/2, yy, sw, sd*k);
+          ctx.beginPath(); ctx.arc(cx, yy + spot*k, 3, 0, 6.283); ctx.fill();
+          var c = k > 0 ? Math.PI/2 : -Math.PI/2;
+          ctx.beginPath(); ctx.arc(cx, yy + spot*k, dr, c - da, c + da); ctx.stroke();
+        });
+        [[L, top, 0], [R, top, Math.PI/2], [R, bot, Math.PI], [L, bot, -Math.PI/2]].forEach(function(c){
+          ctx.beginPath(); ctx.arc(c[0], c[1], 14, c[2], c[2] + Math.PI/2); ctx.stroke();
+        });
+
+        // fade the markings under the text column so reading stays easy
+        var half = Math.min(W, 740)/2 + 12, feather = 48;
+        var fade = ctx.createLinearGradient(cx - half - feather, 0, cx + half + feather, 0);
+        var e = feather/(2*(half + feather));
+        fade.addColorStop(0, 'rgba(0,0,0,0)');
+        fade.addColorStop(e, 'rgba(0,0,0,0.8)');
+        fade.addColorStop(1 - e, 'rgba(0,0,0,0.8)');
+        fade.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.save();
+        ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'destination-out';
+        ctx.fillStyle = fade; ctx.fillRect(cx - half - feather, 0, 2*(half + feather), H);
+        ctx.restore();
+
+        // ball position (scroll driven); into the net at the very end
+        var q = clamp(sy/max, 0, 1), r = W > 1000 ? 9 : 7;
+        var b = ballDoc(q, y0, y1), bx = b[0], by = b[1] - sy;
+        var gw = Math.min(150, (R-L)*0.3), gy = bot;
+        if (q > 0.985) {
+          var g = ease((q - 0.985)/0.015);
+          bx = lerp(bx, cx, g); by = lerp(by, gy + 13, g);
+          if (q > 0.997 && !goalAt) goalAt = t || 1;
+        } else goalAt = 0;
+
+        // goal + net (ripples after a goal)
+        var since = goalAt ? (t - goalAt) : 0;
+        var amp = (goalAt && !reduce) ? 7*Math.exp(-since/500) : 0;
+        ctx.globalAlpha = 0.5; ctx.strokeStyle = ink; ctx.lineWidth = 2;
+        ctx.strokeRect(cx - gw/2, gy, gw, 26);
+        ctx.globalAlpha = 0.22; ctx.lineWidth = 0.8;
+        for (var x = cx - gw/2; x <= cx + gw/2; x += 10) {
+          ctx.beginPath(); ctx.moveTo(x, gy);
+          ctx.quadraticCurveTo(x, gy + 13 + Math.sin(x*0.2 + since*0.02)*amp, x, gy + 26); ctx.stroke();
+        }
+        for (var y = gy; y <= gy + 26; y += 8) {
+          ctx.beginPath(); ctx.moveTo(cx - gw/2, y);
+          ctx.quadraticCurveTo(cx, y + Math.sin(since*0.02)*amp, cx + gw/2, y); ctx.stroke();
+        }
+
+        // pass trail
+        ctx.globalAlpha = 0.35; ctx.strokeStyle = pc; ctx.setLineDash([4, 6]); ctx.lineWidth = 1.4;
+        ctx.beginPath();
+        for (var s = Math.max(0, q - 0.12), first = true; s <= Math.min(q, 0.985); s += 0.002) {
+          var p = ballDoc(s, y0, y1);
+          if (first) { ctx.moveTo(p[0], p[1] - sy); first = false; } else ctx.lineTo(p[0], p[1] - sy);
+        }
+        ctx.stroke(); ctx.setLineDash([]);
+
+        drawBall(bx, by, r, (sy/r) % 6.283);
+
+        // SIUUU (a DOM element so it sits above the content cards)
+        if (goalAt) {
+          var pop = reduce ? 1 : ease(clamp(since/350, 0, 1));
+          siu.style.left = cx + 'px';
+          siu.style.top = (gy - (W > 1000 ? 26 : 22)) + 'px';
+          siu.style.opacity = pop;
+          siu.style.transform = 'translate(-50%, -50%) rotate(-4deg) scale(' + (0.6 + 0.4*pop) + ')';
+        } else if (siu.style.opacity !== '0') {
+          siu.style.opacity = '0';
+        }
+        ctx.globalAlpha = 1;
+        return goalAt && !reduce && since < 2500;
+      }
+      function schedule(){
+        if (raf) return;
+        raf = requestAnimationFrame(function(t){ raf = 0; if (draw(t)) schedule(); });
+      }
+      resize();
+      window.addEventListener('scroll', schedule, {passive:true});
+      window.addEventListener('resize', function(){ resize(); schedule(); });
+      window.addEventListener('load', schedule);
+      if (window.ResizeObserver) new ResizeObserver(schedule).observe(document.body);
+      new MutationObserver(schedule).observe(root, {attributes:true, attributeFilter:['data-theme']});
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedule);
+      schedule();
+    })();
+
+    /* ── Red pen underlines: each one is drawn in full once you scroll to it ── */
+    (function(){
+      var marks = [].slice.call(document.querySelectorAll('.mark'));
+      if (!marks.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      document.documentElement.classList.add('mark-ready');
+      var queue = [], busy = false, scrolled = false;
+      function drawNext(){
+        if (busy || !queue.length) return;
+        busy = true;
+        queue.shift().classList.add('on');
+        setTimeout(function(){ busy = false; drawNext(); }, 450);   // one stroke after another, in reading order
+      }
+      function check(){
+        var H = window.innerHeight;
+        marks = marks.filter(function(m){
+          var r = m.getBoundingClientRect();
+          var inFirstScreen = r.top + window.scrollY < H * 0.75;
+          var ready = inFirstScreen ? scrolled : r.top < H * 0.72;   // first-screen phrases wait for the first scroll
+          if (ready && r.bottom > 0) { queue.push(m); return false; }
+          if (r.bottom <= 0) { m.classList.add('on'); return false; } // jumped past it: just show it
+          return true;
+        });
+        drawNext();
+        if (!marks.length) { window.removeEventListener('scroll', onScroll); }
+      }
+      function onScroll(){ if (window.scrollY > 8) scrolled = true; check(); }
+      window.addEventListener('scroll', onScroll, {passive:true});
+      setTimeout(function(){ scrolled = true; check(); }, 2500);       // never leave the intro unmarked
+      check();
+    })();
+
+    /* ── Places globe ── */
+    (function(){
+      var wrap = document.getElementById('globeWrap'), cv = document.getElementById('globe');
+      var data = [];
+      try { data = JSON.parse(document.getElementById('placesData').textContent); } catch (err) {}
+      if (!cv || !data.length || !window.d3 || !d3.geoOrthographic || !window.topojson || !window.LAND_110M) {
+        var pl = document.getElementById('places'); if (pl) pl.hidden = true;
+        return;
+      }
+      var P = data.map(function(d){ return [d[2], d[1]]; });
+      var land = topojson.feature(LAND_110M, LAND_110M.objects.land);
+      var ctx = cv.getContext('2d'), root = document.documentElement;
+      var proj = d3.geoOrthographic().clipAngle(90).precision(0.4), path = d3.geoPath(proj, ctx), grat = d3.geoGraticule10();
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var size = 0, rot = [-40, -22, 0], target = null, drag = null, hover = -1, focus = -1;
+      var onscreen = true, raf = 0, last = 0, pts = [];
+      function v(n){ return getComputedStyle(root).getPropertyValue(n).trim(); }
+      function resize(){
+        var r = cv.getBoundingClientRect(), d = Math.min(window.devicePixelRatio || 1, 2);
+        size = r.width || 230;
+        cv.width = Math.round(size*d); cv.height = Math.round(size*d);
+        ctx.setTransform(d,0,0,d,0,0);
+        proj.translate([size/2, size/2]).scale(size/2 - 3);
+      }
+      function draw(t){
+        proj.rotate(rot);
+        var C = { s: v('--surface'), b: v('--border'), l: v('--badge-bg'), a: v('--accent'), t: v('--text') };
+        ctx.clearRect(0, 0, size, size);
+        ctx.beginPath(); path({type:'Sphere'}); ctx.fillStyle = C.s; ctx.fill();
+        ctx.beginPath(); path(grat); ctx.strokeStyle = C.b; ctx.globalAlpha = 0.55; ctx.lineWidth = 0.5; ctx.stroke();
+        ctx.globalAlpha = 1;
+        ctx.beginPath(); path(land); ctx.fillStyle = C.l; ctx.fill();
+        ctx.strokeStyle = C.a; ctx.globalAlpha = 0.3; ctx.lineWidth = 0.6; ctx.stroke(); ctx.globalAlpha = 1;
+        ctx.beginPath(); path({type:'Sphere'}); ctx.strokeStyle = C.b; ctx.lineWidth = 1; ctx.stroke();
+
+        var c = [-rot[0], -rot[1]], best = -1, bd = 9;
+        pts = P.map(function(p, i){
+          var d = d3.geoDistance(p, c);
+          if (d < bd) { bd = d; best = i; }
+          return { xy: proj(p), front: d < 1.52 };
+        });
+        pts.forEach(function(q, i){
+          if (!q.front) return;
+          var big = (i === hover || i === focus);
+          ctx.beginPath(); ctx.arc(q.xy[0], q.xy[1], big ? 4.5 : 3, 0, 6.283);
+          ctx.fillStyle = C.a; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = C.s; ctx.stroke();
+        });
+        var L = hover >= 0 ? hover : (focus >= 0 ? focus : (bd < 1.52 ? best : -1));
+        if (L >= 0 && pts[L].front) {
+          var x = pts[L].xy[0], y = pts[L].xy[1];
+          if (!reduce) {
+            var ph = (t % 1800)/1800;
+            ctx.beginPath(); ctx.arc(x, y, 4 + ph*12, 0, 6.283);
+            ctx.strokeStyle = C.a; ctx.globalAlpha = 1 - ph; ctx.lineWidth = 1.2; ctx.stroke(); ctx.globalAlpha = 1;
+          }
+          var name = data[L][0];
+          ctx.font = "500 11.5px Inter, system-ui, sans-serif";
+          var w = ctx.measureText(name).width + 12, h = 20;
+          var lx = Math.min(size - w - 2, Math.max(2, x + 8)), ly = Math.max(2, y - h - 6);
+          ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(lx, ly, w, h, 6); else ctx.rect(lx, ly, w, h);
+          ctx.fillStyle = C.t; ctx.fill();
+          ctx.fillStyle = C.s; ctx.textBaseline = 'middle'; ctx.textAlign = 'left';
+          ctx.fillText(name, lx + 6, ly + h/2 + 0.5);
+        }
+      }
+      function loop(t){
+        raf = 0;
+        var dt = last ? Math.min(50, t - last) : 16; last = t;
+        if (target) {
+          var dl = ((target[0] - rot[0] + 540) % 360) - 180, dp = target[1] - rot[1];
+          rot[0] += dl*0.12; rot[1] += dp*0.12;
+          if (Math.abs(dl) < 0.1 && Math.abs(dp) < 0.1) { rot[0] = target[0]; rot[1] = target[1]; target = null; }
+        } else if (!drag && hover < 0 && focus < 0 && !reduce) {
+          rot[0] += dt*0.006;
+        }
+        draw(t);
+        if (onscreen && (!reduce || target)) raf = requestAnimationFrame(loop);
+        else last = 0;
+      }
+      function kick(){ if (!raf) raf = requestAnimationFrame(loop); }
+      function pick(e){
+        var r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top, bi = -1, bd = 144;
+        pts.forEach(function(q, i){
+          if (!q.front) return;
+          var dx = q.xy[0] - x, dy = q.xy[1] - y, d = dx*dx + dy*dy;
+          if (d < bd) { bd = d; bi = i; }
+        });
+        return bi;
+      }
+      function focusOn(i){
+        focus = i;
+        target = [-P[i][0], Math.max(-60, Math.min(60, -P[i][1]))];
+        kick();
+      }
+      cv.addEventListener('pointerdown', function(e){
+        drag = { x: e.clientX, y: e.clientY, r0: rot[0], r1: rot[1], moved: false };
+        try { cv.setPointerCapture(e.pointerId); } catch (err) {}
+        cv.classList.add('dragging');
+      });
+      cv.addEventListener('pointermove', function(e){
+        if (drag) {
+          var dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+          if (Math.abs(dx) + Math.abs(dy) > 3) { drag.moved = true; focus = -1; target = null; }
+          rot[0] = drag.r0 + dx*0.4;
+          rot[1] = Math.max(-70, Math.min(70, drag.r1 - dy*0.4));
+          kick();
+        } else {
+          var h = pick(e);
+          if (h !== hover) { hover = h; cv.style.cursor = h >= 0 ? 'pointer' : ''; kick(); }
+        }
+      });
+      function end(e){
+        if (drag && !drag.moved && e.type === 'pointerup') { var i = pick(e); if (i >= 0) focusOn(i); }
+        drag = null; cv.classList.remove('dragging'); kick();
+      }
+      cv.addEventListener('pointerup', end);
+      cv.addEventListener('pointercancel', end);
+      cv.addEventListener('pointerleave', function(){ if (!drag && hover !== -1) { hover = -1; cv.style.cursor = ''; kick(); } });
+      if (window.IntersectionObserver) {
+        new IntersectionObserver(function(es){ onscreen = es[0].isIntersecting; if (onscreen) kick(); }).observe(cv);
+      }
+      window.addEventListener('resize', function(){ resize(); kick(); });
+      new MutationObserver(kick).observe(root, {attributes:true, attributeFilter:['data-theme']});
+      resize(); kick();
+    })();
+    </script>
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3CXTTZKE7K"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-3CXTTZKE7K');</script>
     <script>var sc_project=12834493;var sc_invisible=1;var sc_security="6f019326";</script>
